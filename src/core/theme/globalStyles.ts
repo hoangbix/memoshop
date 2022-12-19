@@ -41,6 +41,10 @@ const GlobalStyles = (theme: Theme, settings: Settings) => {
     '.MuiGrid-container.match-height .MuiCard-root': {
       height: '100%',
     },
+    '.MuiTabs-scroller': {
+      borderBottom: `tranparent !important`,
+      minWidth: 'max-content',
+    },
     '.ps__rail-y': {
       zIndex: 1,
       right: '0 !important',

@@ -1,8 +1,10 @@
 import { Container } from '@mui/material';
 import { ReactNode } from 'react';
 import { BannerTopCard } from 'src/components/BannerTop';
+import BestSells from 'src/components/BestSells';
 import Carousel from 'src/components/Carousel';
 import PopularCategories from 'src/components/PopularCategories';
+import TabProducts from 'src/components/TabProducts';
 
 import DefaultLayout from 'src/layouts/DefaultLayout';
 
@@ -12,6 +14,8 @@ const HomePage = () => {
       <Carousel />
       <PopularCategories />
       <BannerTopCard />
+      <TabProducts />
+      <BestSells />
     </Container>
   );
 };

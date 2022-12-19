@@ -19,11 +19,11 @@ const listBanners = [
 
 export const BannerTopCard = () => {
   return (
-    <Box sx={{ mt: '30px' }}>
+    <Box sx={{ my: '44px' }}>
       <Grid item xs={16}>
         <Grid container justifyContent="center" spacing={5} columns={{ xs: 1, sm: 8, md: 12 }}>
           {listBanners.map((item, i) => (
-            <Grid key={i} item xs={1} sm={4} md={4}>
+            <Grid key={i} item xs={1} sm={4} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Paper
                 sx={{
                   height: 307,

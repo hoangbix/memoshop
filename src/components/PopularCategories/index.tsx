@@ -21,14 +21,14 @@ const responsiveSettings = [
   {
     breakpoint: 800,
     settings: {
-      slidesToShow: 5,
+      slidesToShow: 4,
       slidesToScroll: 1,
     },
   },
   {
     breakpoint: 500,
     settings: {
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1,
     },
   },

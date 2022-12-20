@@ -68,7 +68,7 @@ const BestSells = () => {
   };
 
   return (
-    <Box sx={{ height: 520 }}>
+    <Box sx={{ mb: '44px' }}>
       <TabFilter data={listTabProducts} onFilter={handleFilter} title={'Bán chạy nhất hàng ngày'} />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: '30px' }}>
         <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>

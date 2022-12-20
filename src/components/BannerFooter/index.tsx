@@ -13,7 +13,7 @@ const BannerFooter = () => {
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           borderRadius: '20px',
-          padding: '50px 78px',
+          padding: { xs: '30px 40px', md: '50px 78px' },
         }}
       >
         <Box

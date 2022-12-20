@@ -9,6 +9,7 @@ import DefaultLayout from 'src/layouts/DefaultLayout';
 import { BannerTopCard } from 'src/components/BannerTop';
 import PopularCategories from 'src/components/PopularCategories';
 import ProductHorizontal from 'src/components/ProductHorizontal';
+import BannerFooter from 'src/components/BannerFooter';
 
 const DealsCard = dynamic(() => import('src/components/DealsCard'), {
   ssr: false,
@@ -24,6 +25,7 @@ const HomePage = () => {
       <BestSells />
       <DealsCard />
       <ProductHorizontal />
+      <BannerFooter />
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import { Rating } from '@mui/lab';
+import Rating from '@mui/material/Rating';
 import { Box, Typography } from '@mui/material';
 import { ProductType } from 'src/types/product';
 

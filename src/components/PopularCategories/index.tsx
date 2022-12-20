@@ -76,15 +76,52 @@ const listCategory = [
   },
 ];
 
+const settings = {
+  dots: false,
+  infinite: true,
+  slidesToShow: 8,
+  slidesToScroll: 1,
+  autoplay: true,
+  speed: 3000,
+  autoplaySpeed: 2000,
+  cssEase: 'linear',
+  responsive: [
+    {
+      breakpoint: 1224,
+      settings: {
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
 const PopularCategories = () => {
   return (
     <>
-      <Typography color={'#253D4E'} fontWeight={700} fontSize={'32px'} mx={'15px'}>
+      <Typography color={'#253D4E'} fontWeight={700} fontSize={{ xs: '24px', md: '32px' }} mx={'15px'}>
         Sản phẩm đặc trưng
       </Typography>
-      <Slider>
+      <Slider {...settings}>
         {listCategory.map((item, i) => (
-          <Box key={i} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box key={i}>
             <CategoryCard data={item} />
           </Box>
         ))}

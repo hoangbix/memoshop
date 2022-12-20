@@ -40,21 +40,6 @@ const Header = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          backgroundColor: '#3BB77E',
-          width: '100%',
-          height: '38px',
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: { xs: 'flex', lg: 'none' },
-          padding: '20px 10px',
-        }}
-      >
-        <Typography color={'#fff'} fontSize={'14px'} fontWeight={'bold'}>
-          Tưng bừng khai trương, giảm tới 15% tất cả các mặt hàng. Chỉ còn 3 ngày nữa
-        </Typography>
-      </Box>
       <HeadertWrapper sx={{ display: { xs: 'none', lg: 'flex' } }}>
         <Container maxWidth={'xl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <HeaderInfo />
@@ -69,7 +54,7 @@ const Header = () => {
           </Typography>
         </Container>
       </HeadertWrapper>
-      <Box sx={{ padding: '30px 0', borderBottom: '1px solid #cccccc80' }}>
+      <Box sx={{ padding: { sx: '20px 0', md: '30px 0' }, borderBottom: '1px solid #cccccc80' }}>
         <Toolbar disableGutters>
           <Container
             maxWidth={'xl'}

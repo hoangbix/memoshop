@@ -28,7 +28,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
   };
 
   return (
-    <>
+    <Box sx={{ position: 'relative' }}>
       <Card
         sx={{
           width: 280,
@@ -37,7 +37,6 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           border: '1px solid #DEF9EC',
           borderRadius: '15px',
           padding: '15px',
-          position: 'relative',
         }}
       >
         <CardMedia component="img" height="217" image={data.image} alt="green iguana" sx={{ borderRadius: '10px' }} />
@@ -146,6 +145,6 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           {renderStatus().text}
         </Typography>
       </Box>
-    </>
+    </Box>
   );
 };

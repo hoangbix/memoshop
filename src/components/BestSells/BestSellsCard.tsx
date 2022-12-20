@@ -160,6 +160,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             <Button
               variant="contained"
               startIcon={<BiCart />}
+              disabled={data.quantity - data.sold === 0}
               sx={{
                 width: '100%',
                 height: '36px',

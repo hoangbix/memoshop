@@ -48,6 +48,7 @@ const Header = () => {
           justifyContent: 'center',
           alignItems: 'center',
           display: { xs: 'flex', lg: 'none' },
+          padding: '20px 10px',
         }}
       >
         <Typography color={'#fff'} fontSize={'14px'} fontWeight={'bold'}>

@@ -4,6 +4,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 1,
     name: 'Nấm đùi gà Green Kingdom 250gr',
+    quantity: 56,
+    sold: 52,
     isHot: true,
     isNew: false,
     rating: 3.5,
@@ -17,6 +19,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 2,
     name: 'Nấm hương tươi Green Kingdom',
+    quantity: 112,
+    sold: 26,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -29,6 +33,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 3,
     name: 'Pate heo An Mộc',
+    quantity: 76,
+    sold: 3,
     isHot: true,
     isNew: false,
     rating: 4.5,
@@ -41,6 +47,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 4,
     name: 'Quả chà là khô hữu cơ Smart Organic 200Gr',
+    quantity: 94,
+    sold: 19,
     isHot: false,
     isNew: true,
     rating: 5,
@@ -54,7 +62,9 @@ export const cardProductData: ProductType[] = [
   {
     id: 5,
     name: 'Hạt hạnh nhân hữu cơ Smart Organic 200Gr',
-    isHot: false,
+    quantity: 50,
+    sold: 11,
+    isHot: true,
     isNew: false,
     rating: 4.5,
     image: 'images/assets/product-5.jpg',
@@ -67,6 +77,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 6,
     name: 'Nạc nọng giòn An Mộc 1kg',
+    quantity: 156,
+    sold: 74,
     isHot: false,
     isNew: true,
     rating: 4.5,
@@ -79,6 +91,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 7,
     name: 'Cherry đỏ - size 9 1kg',
+    quantity: 55,
+    sold: 33,
     isHot: false,
     isNew: false,
     rating: 3.5,
@@ -91,6 +105,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 8,
     name: 'Tỏi tím Organic 200gr',
+    quantity: 231,
+    sold: 231,
     isHot: true,
     isNew: false,
     rating: 4.5,
@@ -103,6 +119,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 9,
     name: 'Việt quất 125gr',
+    quantity: 86,
+    sold: 71,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -116,6 +134,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 10,
     name: 'Chân giò rút xương An Mộc 1kg',
+    quantity: 43,
+    sold: 14,
     isHot: false,
     isNew: false,
     rating: 1.5,
@@ -128,7 +148,9 @@ export const cardProductData: ProductType[] = [
   {
     id: 11,
     name: 'Táo Juliet Hữu Cơ',
-    isHot: false,
+    quantity: 54,
+    sold: 11,
+    isHot: true,
     isNew: false,
     rating: 4.5,
     image: 'images/assets/product-11.png',
@@ -140,6 +162,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 12,
     name: 'Ba rọi nách An Mộc 1kg',
+    quantity: 55,
+    sold: 0,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -153,6 +177,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 13,
     name: 'Mọc heo An Mộc 1kg',
+    quantity: 127,
+    sold: 110,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -165,7 +191,9 @@ export const cardProductData: ProductType[] = [
   {
     id: 14,
     name: 'Kiwi vàng hữu cơ NewZeaLand',
-    isHot: false,
+    quantity: 12,
+    sold: 0,
+    isHot: true,
     isNew: false,
     rating: 4.5,
     image: 'images/assets/product-14.png',
@@ -178,6 +206,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 15,
     name: 'Cải thảo dún Organic 300gr',
+    quantity: 88,
+    sold: 77,
     isHot: false,
     isNew: false,
     rating: 5,
@@ -190,7 +220,9 @@ export const cardProductData: ProductType[] = [
   {
     id: 16,
     name: 'Vú Sữa Bắc Thảo',
-    isHot: false,
+    quantity: 90,
+    sold: 10,
+    isHot: true,
     isNew: false,
     rating: 4.5,
     image: 'images/assets/product-10.jpg',
@@ -202,6 +234,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 17,
     name: 'Bột nghệ hữu cơ 150g Lumlum Organic Turmeric Powder',
+    quantity: 42,
+    sold: 21,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -215,6 +249,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 18,
     name: 'Xương ống thịt An Mộc 1kg',
+    quantity: 10,
+    sold: 1,
     isHot: true,
     isNew: false,
     rating: 4.5,
@@ -227,6 +263,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 19,
     name: 'Nho xanh Autumn Crisp 1kg',
+    quantity: 12,
+    sold: 0,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -239,6 +277,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 20,
     name: 'Bông cải xanh Organic 300g',
+    quantity: 114,
+    sold: 14,
     isHot: false,
     isNew: true,
     rating: 4.5,
@@ -252,6 +292,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 21,
     name: 'Mứt nam việt quất hữu cơ 320g Sottolestelle Organic Blueberrie Jam',
+    quantity: 26,
+    sold: 10,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -264,6 +306,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 22,
     name: 'Mận An Phước',
+    quantity: 241,
+    sold: 141,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -276,6 +320,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 23,
     name: 'Cà chua picota organic 300g',
+    quantity: 93,
+    sold: 19,
     isHot: true,
     isNew: false,
     rating: 4.5,
@@ -288,6 +334,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 24,
     name: 'Kiwi vàng NewZealand 1kg',
+    quantity: 65,
+    sold: 56,
     isHot: false,
     isNew: true,
     rating: 4.5,
@@ -301,6 +349,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 25,
     name: 'Siro Lá Phong Maple Syrup Hữu Cơ Radiant Code 250ml',
+    quantity: 56,
+    sold: 0,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -313,6 +363,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 26,
     name: 'Táo đỏ hữu cơ AmaVie Foods 450g',
+    quantity: 41,
+    sold: 0,
     isHot: false,
     isNew: false,
     rating: 4.5,
@@ -326,6 +378,8 @@ export const cardProductData: ProductType[] = [
   {
     id: 27,
     name: 'Bột Protein Từ Đậu Hữu Cơ 250gr',
+    quantity: 82,
+    sold: 0,
     isHot: false,
     isNew: false,
     rating: 2,

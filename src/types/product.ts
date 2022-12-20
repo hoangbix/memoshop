@@ -8,8 +8,17 @@ export interface ProductType {
   rating: number;
   image: string;
   category: CategoryType;
-  to: '/';
+  to: string;
   desc: string;
   price: number;
   discount?: number;
+  quantity: number;
+  sold: number;
 }
+
+export type ListTabProductsType = {
+  category: string;
+  to: string;
+  id: number;
+  name: string;
+};

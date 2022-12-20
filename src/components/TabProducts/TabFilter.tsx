@@ -5,16 +5,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { ListTabProductsType } from 'src/types/product';
 
-const listTabProducts = [
-  { category: 'all', to: '/', id: 1, name: 'Tất cả' },
-  { category: 'rau-cu', to: '/', id: 2, name: 'Rau củ' },
-  { category: 'thit-ca', to: '/', id: 3, name: 'Thịt cá' },
-  { category: 'do-kho', to: '/', id: 4, name: 'Đồ khô' },
-  { category: 'trai-cay', to: '/', id: 5, name: 'Trái cây' },
-];
+interface Props {
+  onFilter: (i: string) => void;
+  data: ListTabProductsType[];
+  title: string;
+}
 
-const TabFilter = ({ onFilter }: { onFilter: (i: any) => void }) => {
+const TabFilter = ({ onFilter, data, title }: Props) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -34,19 +33,32 @@ const TabFilter = ({ onFilter }: { onFilter: (i: any) => void }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: '30px' }}>
-      <Typography color={'#253D4E'} fontSize={'32px'} fontWeight={700}>
-        Sản phẩm phổ biến
+    <Box
+      sx={{
+        display: { sx: 'inline-bock', md: 'flex' },
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        mt: '30px',
+        width: '100%',
+      }}
+    >
+      <Typography color={'#253D4E'} fontSize={{ xs: '24px', md: '32px' }} fontWeight={700}>
+        {title}
       </Typography>
       <Box
         component={motion.div}
         variants={listVariants}
         animate={'expand'}
-        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
       >
         <Tabs
           value={value}
           onChange={handleChange}
+          scrollButtons="auto"
           centered
           TabIndicatorProps={{
             style: {
@@ -54,15 +66,15 @@ const TabFilter = ({ onFilter }: { onFilter: (i: any) => void }) => {
             },
           }}
         >
-          {listTabProducts.map((item, i) => {
+          {data.map((item: ListTabProductsType) => {
             return (
               <Tab
-                key={i}
+                key={item.id}
                 component={motion.div}
                 label={item.name}
                 variants={itemVariants}
                 onClick={() => onFilter(item.category)}
-                sx={{ fontWeight: 700, color: '#253D4E', fontSize: '16px', textTransform: 'none' }}
+                sx={{ fontWeight: 700, color: '#253D4E', fontSize: { xs: '14px', md: '16px' }, textTransform: 'none' }}
               />
             );
           })}

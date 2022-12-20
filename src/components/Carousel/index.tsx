@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Button, Container, Typography } from '@mui/material';
-import { Fade } from 'react-slideshow-image';
-import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 import Link from 'next/link';
+import Slider from 'react-slick';
 
 const images = [
   {
@@ -23,19 +22,16 @@ const images = [
   },
 ];
 
-const properties = {
-  prevArrow: (
-    <Button variant="outlined" sx={{ width: '40px', height: '50px', mx: '10px' }}>
-      <BiChevronLeft fontSize={'40px'} />
-    </Button>
-  ),
-  nextArrow: (
-    <Button variant="outlined" sx={{ width: '40px', height: '50px', mx: '10px' }}>
-      <BiChevronRight fontSize={'40px'} />
-    </Button>
-  ),
+const settings = {
+  dots: false,
+  fade: true,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  speed: 1500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
 };
-
 const Carousel = () => {
   return (
     <Container
@@ -45,7 +41,7 @@ const Carousel = () => {
         display: { xs: 'none', md: 'block' },
       }}
     >
-      <Fade {...properties} duration={2500}>
+      <Slider {...settings}>
         {images.map((item, i) => (
           <div
             style={{
@@ -110,7 +106,7 @@ const Carousel = () => {
             </Box>
           </div>
         ))}
-      </Fade>
+      </Slider>
     </Container>
   );
 };

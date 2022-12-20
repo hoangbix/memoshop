@@ -1,52 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { Slide } from 'react-slideshow-image';
 import CategoryCard from './CategoryCard';
-
-const responsiveSettings = [
-  {
-    breakpoint: 1100,
-    settings: {
-      slidesToShow: 8,
-      slidesToScroll: 1,
-    },
-  },
-  {
-    breakpoint: 1000,
-    settings: {
-      slidesToShow: 6,
-      slidesToScroll: 1,
-    },
-  },
-  {
-    breakpoint: 800,
-    settings: {
-      slidesToShow: 4,
-      slidesToScroll: 1,
-    },
-  },
-  {
-    breakpoint: 500,
-    settings: {
-      slidesToShow: 3,
-      slidesToScroll: 1,
-    },
-  },
-  {
-    breakpoint: 300,
-    settings: {
-      slidesToShow: 2,
-      slidesToScroll: 1,
-    },
-  },
-  {
-    breakpoint: 200,
-    settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    },
-  },
-];
+import Slider from 'react-slick';
 
 const listCategory = [
   {
@@ -127,13 +82,13 @@ const PopularCategories = () => {
       <Typography color={'#253D4E'} fontWeight={700} fontSize={'32px'} mx={'15px'}>
         Sản phẩm đặc trưng
       </Typography>
-      <Slide slidesToScroll={2} slidesToShow={8} duration={2000} responsive={responsiveSettings} arrows={false}>
+      <Slider>
         {listCategory.map((item, i) => (
           <Box key={i} sx={{ display: 'flex', justifyContent: 'center' }}>
             <CategoryCard data={item} />
           </Box>
         ))}
-      </Slide>
+      </Slider>
     </>
   );
 };

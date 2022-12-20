@@ -1,5 +1,6 @@
 import '../../styles/globals.css';
-import 'react-slideshow-image/dist/styles.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import { Fragment } from 'react';
 import NProgress from 'nprogress';

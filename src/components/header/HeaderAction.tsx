@@ -8,20 +8,20 @@ import UserIcon from 'src/images/icons/icon-user.svg';
 
 export const HeaderAction = () => {
   return (
-    <Box sx={{ width: { xs: 'auto', lg: '35%' }, display: 'flex', justifyContent: 'right', gap: '5px' }}>
-      <Button sx={{ gap: '5px', display: { xs: 'none', lg: 'flex' } }}>
+    <Box sx={{ display: 'flex', justifyContent: 'right', gap: '5px' }}>
+      <Button sx={{ gap: '5px', display: { xs: 'none', xl: 'flex' } }}>
         <Badge badgeContent={4} color="primary">
           <ComprareIcon />
         </Badge>
         <Typography sx={{ fontSize: '16px', mt: '10px' }}>So sánh</Typography>
       </Button>
-      <Button sx={{ gap: '5px' }}>
+      <Button sx={{ minWidth: '20px', gap: '5px' }}>
         <Badge badgeContent={4} color="primary">
           <HeartIcon />
         </Badge>
         <Typography sx={{ fontSize: '16px', mt: '10px', display: { xs: 'none', lg: 'flex' } }}>Yêu thích</Typography>
       </Button>
-      <Button sx={{ gap: '5px' }}>
+      <Button sx={{ minWidth: '20px', gap: '5px' }}>
         <Badge badgeContent={4} color="primary">
           <CartIcon />
         </Badge>

@@ -25,23 +25,32 @@ const TabProducts = () => {
   };
 
   return (
-    <Box sx={{ mb: '44px', padding: { xs: '10px', md: '' } }}>
+    <Box sx={{ mb: '44px', padding: { xs: '10px', lg: '' } }}>
       <TabFilter onFilter={handleFilter} data={listTabProducts} title={'Sản phẩm phổ biến'} />
       <Box sx={{ mt: '44px' }}>
         <Grid item xs={3}>
-          <Grid container justifyContent="center" spacing={3} sx={{ gap: '25px' }}>
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 8, md: 12, xl: 16, xxl: 20 }}>
             {filteredItems.slice(0, 10).map((prod) => (
-              <Box
+              <Grid
                 key={prod.id}
-                component={motion.div}
-                layout
-                initial={{ transform: 'scale(0)' }}
-                animate={{ transform: 'scale(1)' }}
-                exit={{ transform: 'scale(0)' }}
-                style={{ overflow: 'hidden' }}
+                item
+                xs={4}
+                md={4}
+                xl={4}
+                xxl={4}
+                sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
               >
-                <CardProduct data={prod} />
-              </Box>
+                <Box
+                  component={motion.div}
+                  layout
+                  initial={{ transform: 'scale(0)' }}
+                  animate={{ transform: 'scale(1)' }}
+                  exit={{ transform: 'scale(0)' }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <CardProduct data={prod} />
+                </Box>
+              </Grid>
             ))}
           </Grid>
         </Grid>

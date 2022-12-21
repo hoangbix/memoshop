@@ -23,6 +23,14 @@ declare module '@mui/material/styles' {
       tableHeaderBg?: string;
     };
   }
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    xxl: true;
+  }
 }
 
 export {};

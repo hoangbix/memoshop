@@ -6,7 +6,7 @@ import { DealsCardItem } from './DealsCardItem';
 const DealsCard = () => {
   return (
     <Box sx={{ mb: '44px' }}>
-      <Box sx={{ display: { sx: 'block', md: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
+      <Box sx={{ display: { sx: 'block', lg: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography color={'#253D4E'} fontSize={{ xs: '24px', md: '32px' }} fontWeight={700}>
           Ưu đãi chào năm mới
         </Typography>

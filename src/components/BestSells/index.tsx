@@ -31,19 +31,18 @@ const settings = {
   cssEase: 'linear',
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1124,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         infinite: true,
-        dots: true,
       },
     },
     {
       breakpoint: 800,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         initialSlide: 2,
       },
     },
@@ -71,7 +70,7 @@ const BestSells = () => {
     <Box sx={{ mb: '44px' }}>
       <TabFilter data={listTabProducts} onFilter={handleFilter} title={'Bán chạy nhất hàng ngày'} />
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: '30px' }}>
-        <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
+        <Box sx={{ display: { xs: 'none', xl: 'flex' } }}>
           <Paper
             sx={{
               height: 520,
@@ -119,7 +118,7 @@ const BestSells = () => {
             />
           </Paper>
         </Box>
-        <Box sx={{ width: { xs: '100%', lg: '73%' }, height: 520 }}>
+        <Box sx={{ width: { xs: '100%', xl: '73%' }, height: 520 }}>
           <Slider {...settings}>
             {filteredItems.slice(0, 10).map((item) => (
               <Box

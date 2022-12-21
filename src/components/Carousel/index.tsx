@@ -35,7 +35,7 @@ const settings = {
 const Carousel = () => {
   return (
     <Container
-      maxWidth={'xl'}
+      maxWidth={'xxl'}
       sx={{
         my: '30px',
         display: { xs: 'none', md: 'block' },

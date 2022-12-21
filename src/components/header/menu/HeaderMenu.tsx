@@ -15,7 +15,7 @@ export const HeaderMenu = () => {
         display: { xs: 'none', md: 'flex' },
       }}
     >
-      <Container maxWidth={'xl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Container maxWidth={'xxl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <DropdownMenu />
         <MainMenu />
         <HotlineMenu />

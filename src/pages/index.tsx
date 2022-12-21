@@ -19,7 +19,7 @@ const DealsCard = dynamic(() => import('src/components/DealsCard'), {
 
 const HomePage = () => {
   return (
-    <Container maxWidth={'xl'}>
+    <Container maxWidth={'xxl'}>
       <Carousel />
       <PopularCategories />
       <BannerTopCard />

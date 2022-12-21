@@ -47,21 +47,18 @@ const listBanners = [
 export const DealsCardItem = () => {
   return (
     <Box sx={{ mt: '30px' }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, xl: 16 }}>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ sx: 4, md: 8, xl: 16 }}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         {listBanners.map((item, i) => (
-          <Grid
-            key={i}
-            item
-            xs={4}
-            sm={4}
-            md={4}
-            xl={4}
-            sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
-          >
+          <Grid key={i} item xs={4} sm={4} md={4} xl={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Paper
               sx={{
-                height: 350,
-                maxWidth: { sx: 'auto', lg: 378 },
+                height: { sx: '100%', lg: 350 },
+                maxWidth: { sx: '100%', lg: 378 },
                 borderRadius: '20px',
                 transition: '0.4s ease-in-out',
                 backgroundImage: `url("${item.img}")`,
@@ -72,6 +69,7 @@ export const DealsCardItem = () => {
                 boxShadow: 'none',
                 display: 'flex',
                 justifyContent: 'center',
+                alignItems: 'center',
                 ':hover': {
                   boxShadow:
                     'rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.07) 0px 2px 2px 0px, rgba(0, 0, 0, 0.07) 0px 4px 4px 0px, rgba(0, 0, 0, 0.07) 0px 8px 8px 0px, rgba(0, 0, 0, 0.07) 0px 16px 16px 0px',

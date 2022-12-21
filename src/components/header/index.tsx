@@ -40,11 +40,23 @@ const Header = () => {
 
   return (
     <>
-      <HeadertWrapper sx={{ display: { xs: 'none', lg: 'flex' } }}>
-        <Container maxWidth={'xl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Typography
+        sx={{
+          display: { xs: 'none', sm: 'block', md: 'none' },
+          height: '30px',
+          lineHeight: '30px',
+          textAlign: 'center',
+          background: '#DEF9EC',
+          fontSize: '14px',
+        }}
+      >
+        Nhập mã <span style={{ color: '#3BB77E', fontWeight: 700 }}>FREESHIP</span> để được miễn phí giao hàng
+      </Typography>
+      <HeadertWrapper sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Container maxWidth={'xxl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <HeaderInfo />
-          <Typography sx={{ fontSize: '14px' }}>
-            Nhập mã <span style={{ fontWeight: 600, color: '#3BB77E' }}>FREESHIP</span> để được miễn phí giao hàng
+          <Typography sx={{ fontSize: '14px', display: { xs: 'none', xl: 'block' } }}>
+            Nhập mã <span style={{ color: '#3BB77E', fontWeight: 700 }}>FREESHIP</span> để được miễn phí giao hàng
           </Typography>
           <Typography sx={{ fontSize: '14px' }}>
             Bạn cần giúp đỡ?{' '}
@@ -57,7 +69,7 @@ const Header = () => {
       <Box sx={{ padding: { sx: '20px 0', md: '30px 0' }, borderBottom: '1px solid #cccccc80' }}>
         <Toolbar disableGutters>
           <Container
-            maxWidth={'xl'}
+            maxWidth={'xxl'}
             sx={{ height: '62px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '30px' }}
           >
             <Box sx={{ display: { xs: 'block', lg: 'none' }, justifyContent: 'center' }}>
@@ -65,7 +77,7 @@ const Header = () => {
                 <AiOutlineMenu fontSize={'30px'} />
               </Link>
             </Box>
-            <Box sx={{ width: '20%', display: { xs: 'none', lg: 'flex' } }}>
+            <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
               <Link href={'/'}>
                 <LogoIcon />
               </Link>

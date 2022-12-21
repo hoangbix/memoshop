@@ -33,7 +33,8 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
         sx={{
           width: 280,
           maxWidth: '100%',
-          height: '470px',
+          height: 490,
+          maxHeight: '100%',
           boxShadow: 'none',
           border: '1px solid #DEF9EC',
           borderRadius: '15px',
@@ -85,17 +86,23 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
         >
           {data.desc}
         </Typography>
-        <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <CardActions
+          sx={{
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'space-between' },
+            alignItems: 'center',
+          }}
+        >
           <Box>
             {data.price > 0 ? (
               <>
-                <Typography color={'#3BB77E'} fontSize="18px" fontWeight={'bold'}>
+                <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
                   {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                 </Typography>
                 {data.discount ? (
                   <Typography
                     color={'#adadad'}
-                    fontSize="14px"
+                    fontSize={{ xs: '12px', lg: '14px' }}
                     fontWeight={'600'}
                     sx={{ textDecoration: 'line-through' }}
                   >
@@ -116,7 +123,13 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
             <Button
               variant="outlined"
               startIcon={<BiCart />}
-              sx={{ width: '84px', height: '36px', backgroundColor: '#DEF9EC', fontWeight: 700 }}
+              sx={{
+                width: '84px',
+                height: '36px',
+                backgroundColor: '#DEF9EC',
+                fontWeight: 700,
+                fontSize: { xs: '14px', md: '16px' },
+              }}
             >
               Thêm
             </Button>

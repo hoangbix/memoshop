@@ -106,6 +106,13 @@ const settings = {
     {
       breakpoint: 580,
       settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
       },
@@ -115,7 +122,7 @@ const settings = {
 
 const PopularCategories = () => {
   return (
-    <>
+    <Box sx={{ mt: '30px' }}>
       <Typography color={'#253D4E'} fontWeight={700} fontSize={{ xs: '24px', md: '32px' }} mx={'15px'}>
         Sản phẩm đặc trưng
       </Typography>
@@ -126,7 +133,7 @@ const PopularCategories = () => {
           </Box>
         ))}
       </Slider>
-    </>
+    </Box>
   );
 };
 

@@ -20,10 +20,12 @@ const CategoryCard = ({ data }: { data: Props }) => {
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <Card
         sx={{
-          maxWidth: 150,
-          height: '205px',
+          width: 250,
+          maxWidth: '100%',
+          height: { xs: 'auto', lg: 205 },
+          maxHeight: '100%',
           margin: '15px',
-          padding: '10px',
+          padding: { xs: '0', md: '10px' },
           background: `#${bg}`,
           transition: '0.2s ease-in-out',
           ':hover': {
@@ -35,11 +37,11 @@ const CategoryCard = ({ data }: { data: Props }) => {
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
             <CardMedia component="img" width={'80px'} height={'80px'} image={img} alt={title} />
           </motion.div>
-          <CardContent sx={{ mt: '10px' }}>
-            <Typography variant="h5" fontSize={'16px'} fontWeight={600}>
+          <CardContent sx={{ mt: '10px', padding: { xs: '5px', md: '10px' } }}>
+            <Typography variant="h5" fontSize={{ xs: '14px', md: '16px' }} fontWeight={600}>
               {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" fontSize={{ xs: '12px', md: '14px' }}>
               {`${quantity} sản phẩm`}
             </Typography>
           </CardContent>

@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const HeaderInfo = () => {
   return (
-    <List sx={{ width: '30%', bgcolor: 'transparent', display: 'flex', padding: 0 }}>
+    <List sx={{ width: { xs: '50%', xl: '30%' }, bgcolor: 'transparent', display: 'flex', padding: 0 }}>
       <ListItem alignItems="center" sx={{ padding: '5px 10px' }}>
         <ListItemText>
           <MuiLink component={Link} href={'/about'} sx={{ fontSize: '14px' }}>

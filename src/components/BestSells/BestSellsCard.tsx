@@ -54,8 +54,8 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
       <Box sx={{ position: 'relative' }}>
         <Card
           sx={{
-            maxWidth: { sx: 200, lg: 250 },
-            width: '100%',
+            width: 250,
+            maxWidth: '100%',
             height: 520,
             boxShadow: 'none',
             border: '1px solid #d8ebe5',

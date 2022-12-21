@@ -74,7 +74,14 @@ const TabFilter = ({ onFilter, data, title }: Props) => {
                 label={item.name}
                 variants={itemVariants}
                 onClick={() => onFilter(item.category)}
-                sx={{ fontWeight: 700, color: '#253D4E', fontSize: { xs: '14px', md: '16px' }, textTransform: 'none' }}
+                sx={{
+                  fontWeight: 700,
+                  color: '#253D4E',
+                  fontSize: { xs: '14px', md: '16px' },
+                  textTransform: 'none',
+                  padding: { xs: '0 5px', md: '12px 16px' },
+                  minWidth: { xs: 50, md: 90 },
+                }}
               />
             );
           })}

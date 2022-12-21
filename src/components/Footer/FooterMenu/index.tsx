@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, BoxProps, Stack } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 
 import LogoIcon from 'src/images/icons/logo.svg';
@@ -10,7 +10,7 @@ import ClockIcon from 'src/images/icons/icon-clock.svg';
 const FooterMenu = () => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: '44px', borderTop: '1px solid #cccccc80' }}>
-      <Grid container columns={{ xs: 4, sm: 8, md: 16, xl: 20 }} sx={{ alignItems: 'self-start', mt: '30px' }}>
+      <Grid container columns={{ xs: 4, md: 8, xl: 16, xxl: 20 }} sx={{ alignItems: 'self-start', mt: '30px' }}>
         <Grid item xs={4} sm={4} md={4} xl={4} sx={{ display: 'flex' }}>
           <Box sx={{ maxWidth: 330, padding: '0 5px' }}>
             <Box component={Link} href={'/'}>

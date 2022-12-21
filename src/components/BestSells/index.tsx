@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
 import { ListTabProductsType, ProductType } from 'src/types/product';
 import { cardProductData } from '../TabProducts/data';
 import TabFilter from '../TabProducts/TabFilter';
-import Link from 'next/link';
 import { BiLogInCircle } from 'react-icons/bi';
 
 import { motion } from 'framer-motion';
@@ -23,26 +23,26 @@ const listTabProducts: ListTabProductsType[] = [
 const settings = {
   dots: false,
   infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 2000,
   slidesToShow: 4,
   slidesToScroll: 1,
-  autoplay: true,
-  speed: 3000,
-  autoplaySpeed: 2000,
-  cssEase: 'linear',
+  initialSlide: 0,
   responsive: [
     {
       breakpoint: 1124,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll: 3,
         infinite: true,
       },
     },
     {
-      breakpoint: 800,
+      breakpoint: 600,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow: 2,
+        slidesToScroll: 2,
         initialSlide: 2,
       },
     },
@@ -68,13 +68,13 @@ const BestSells = () => {
 
   return (
     <Box sx={{ mb: '44px' }}>
-      <TabFilter data={listTabProducts} onFilter={handleFilter} title={'Bán chạy nhất hàng ngày'} />
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: '30px' }}>
+      <TabFilter data={listTabProducts} onFilter={handleFilter} title={'Bán chạy nhất hàng tuần'} />
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: '30px', gap: '20px' }}>
         <Box sx={{ display: { xs: 'none', xl: 'flex' } }}>
           <Paper
             sx={{
               height: 520,
-              width: '378px',
+              width: { xl: 300, xxl: 350 },
               maxWidth: '100%',
               borderRadius: '20px',
               backgroundImage: `url('images/assets/banner-4.png')`,
@@ -118,7 +118,7 @@ const BestSells = () => {
             />
           </Paper>
         </Box>
-        <Box sx={{ width: { xs: '100%', xl: '73%' }, height: 520 }}>
+        <Box sx={{ width: { xs: '100%', xl: '70%' }, height: 520 }}>
           <Slider {...settings}>
             {filteredItems.slice(0, 10).map((item) => (
               <Box

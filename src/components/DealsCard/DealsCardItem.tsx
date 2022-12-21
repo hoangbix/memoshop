@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import CountdownTimer from './CountdownTimer';
 

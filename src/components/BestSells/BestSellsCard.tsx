@@ -50,12 +50,12 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', margin: '0 10px' }}>
       <Box sx={{ position: 'relative' }}>
         <Card
           sx={{
-            width: 250,
-            maxWidth: '100%',
+            maxWidth: { sx: 200, lg: 250 },
+            width: '100%',
             height: 520,
             boxShadow: 'none',
             border: '1px solid #d8ebe5',

@@ -3,7 +3,7 @@ import { FiSend } from 'react-icons/fi';
 
 const BannerFooter = () => {
   return (
-    <Box sx={{ width: '100%', height: 417, position: 'relative' }}>
+    <Box sx={{ width: '100%', height: 417, position: 'relative', mb: '44px' }}>
       <Box
         sx={{
           backgroundImage: `url('images/assets/banner-10.png')`,
@@ -47,7 +47,7 @@ const BannerFooter = () => {
               border: '1px solid #3BB77E',
             }}
           >
-            <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Nhập địa chỉ email của bạn..." />
+            <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Nhập email của bạn..." />
             <Divider sx={{ height: 28, m: 0.5, background: '#3BB77E' }} orientation="vertical" />
             <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
               <FiSend />

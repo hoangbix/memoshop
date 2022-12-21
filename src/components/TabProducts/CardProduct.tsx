@@ -32,6 +32,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
       <Card
         sx={{
           width: 280,
+          maxWidth: '100%',
           height: '470px',
           boxShadow: 'none',
           border: '1px solid #DEF9EC',

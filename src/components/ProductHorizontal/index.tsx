@@ -1,7 +1,5 @@
 import { Box, Grid, Typography, BoxProps, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { useState } from 'react';
-import { ProductType } from 'src/types/product';
 import { cardProductData } from '../TabProducts/data';
 import { ProductHorizontalItem } from './ProductHorizontalItem';
 
@@ -22,13 +20,13 @@ const ProductItemWrapper = styled(Box)<BoxProps>(() => ({
 }));
 
 const ProductHorizontal = () => {
-  const [selling, setSelling] = useState<ProductType[]>(cardProductData.filter((item) => item.isHot) || []);
-  const [trending, setTrending] = useState<ProductType[]>(cardProductData.filter((item) => item.isNew) || []);
-  const [recentlyAdded, setRecentlyAdded] = useState<ProductType[]>(cardProductData.filter((item) => item.isHot) || []);
-  const [topRated, setTopRated] = useState<ProductType[]>(sortBy(cardProductData, 'rating').reverse() || []);
+  const selling = cardProductData.filter((item) => item.isHot);
+  const trending = cardProductData.filter((item) => item.isNew);
+  const recentlyAdded = cardProductData.filter((item) => item.isHot);
+  const topRated = sortBy(cardProductData, 'rating').reverse();
 
   const listProductHorizontal = [
-    { id: 1, title: 'Bán chạy nhất', products: selling },
+    { id: 1, title: 'Bán chạy nhất', products: selling || [] },
     { id: 2, title: 'Sản phẩm thịnh hành', products: trending },
     { id: 3, title: 'Sản phẩm mới', products: recentlyAdded },
     { id: 4, title: 'Sản phẩm xếp hạng cao', products: topRated },

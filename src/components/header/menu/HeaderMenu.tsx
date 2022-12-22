@@ -12,7 +12,7 @@ export const HeaderMenu = () => {
         height: '71px',
         borderBottom: '1px solid #cccccc80',
         alignItems: 'center',
-        display: { xs: 'none', md: 'flex' },
+        display: { xs: 'none', lg: 'flex' },
       }}
     >
       <Container maxWidth={'xxl'} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

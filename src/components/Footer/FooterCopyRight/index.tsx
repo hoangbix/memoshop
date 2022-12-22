@@ -25,7 +25,7 @@ export const FooterCopyRight = () => {
           </Link>
         </Typography>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '40px' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center', gap: '15px' }}>
             <FiPhoneCall fontSize={'36px'} />
             <Box>
               <Typography color={'#3BB77E'} fontSize={'26px'} fontWeight={700} lineHeight={1}>
@@ -37,7 +37,7 @@ export const FooterCopyRight = () => {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <FiPhoneCall fontSize={'36px'} />
             <Box>
-              <Typography color={'#3BB77E'} fontSize={'26px'} fontWeight={700} lineHeight={1}>
+              <Typography color={'#3BB77E'} fontSize={{ xs: '20px', lg: '26px' }} fontWeight={700} lineHeight={1}>
                 1900 - 9999
               </Typography>
               <Typography>Hỗ trợ 24/7</Typography>

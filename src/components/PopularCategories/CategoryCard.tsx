@@ -22,7 +22,7 @@ const CategoryCard = ({ data }: { data: Props }) => {
         sx={{
           width: 250,
           maxWidth: '100%',
-          height: { xs: 'auto', lg: 205 },
+          height: { xs: '170px', lg: 205 },
           maxHeight: '100%',
           margin: '15px',
           padding: { xs: '0', md: '10px' },

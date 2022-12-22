@@ -1,22 +1,10 @@
-import { Fragment } from 'react';
-
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
+import { Box, Button, Divider, IconButton, InputBase, Paper } from '@mui/material';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { Box } from '@mui/system';
-import LogoIcon from 'src/images/icons/logo.svg';
-import Link from 'next/link';
-import { Button } from '@mui/material';
+import MenuTreeView from './MenuTreeView';
 
-export const HeaderSearch = () => {
+export const BodyNav = ({ handleDrawerToggle }: { handleDrawerToggle: () => void }) => {
   return (
-    <Fragment>
-      <Box sx={{ display: { xs: 'block', lg: 'none' }, minWidth: '120px', justifyContent: 'center' }}>
-        <Link href={'/'}>
-          <LogoIcon />
-        </Link>
-      </Box>
+    <Box sx={{ padding: '30px' }}>
       <Paper
         component="form"
         sx={{
@@ -26,7 +14,7 @@ export const HeaderSearch = () => {
           boxShadow: 'none',
           border: '2px solid #3BB77E90',
           flex: 1,
-          display: { xs: 'none', lg: 'flex' },
+          display: 'flex',
         }}
       >
         <InputBase sx={{ ml: 1, flex: 1 }} placeholder="Nhập để tìm kiếm sản phẩm..." />
@@ -35,6 +23,7 @@ export const HeaderSearch = () => {
           <AiOutlineSearch fontSize={'28px'} />
         </Button>
       </Paper>
-    </Fragment>
+      <MenuTreeView handleDrawerToggle={handleDrawerToggle} />
+    </Box>
   );
 };

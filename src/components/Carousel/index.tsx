@@ -38,7 +38,7 @@ const Carousel = () => {
       maxWidth={'xxl'}
       sx={{
         my: '30px',
-        display: { xs: 'none', md: 'block' },
+        display: { xs: 'none', lg: 'block' },
       }}
     >
       <Slider {...settings}>
@@ -66,7 +66,7 @@ const Carousel = () => {
             <Box style={{ position: 'absolute', top: '20%', left: '10%' }}>
               <Typography
                 component={'h3'}
-                fontSize={{ md: '52px', lg: '72px' }}
+                fontSize={{ md: '42px', xl: '72px' }}
                 color={'#253D4E'}
                 fontWeight={700}
                 lineHeight={1}
@@ -75,14 +75,14 @@ const Carousel = () => {
               </Typography>
               <Typography
                 component={'h3'}
-                fontSize={{ md: '52px', lg: '72px' }}
+                fontSize={{ md: '42px', xl: '72px' }}
                 color={'#253D4E'}
                 fontWeight={700}
                 lineHeight={1}
               >
                 {item.title2}
               </Typography>
-              <Typography fontSize={{ md: '24px', lg: '30px' }} color={'#7E7E7E'} fontWeight={400} marginTop={'10px'}>
+              <Typography fontSize={{ md: '24px', xl: '30px' }} color={'#7E7E7E'} fontWeight={400} marginTop={'10px'}>
                 {item.desc}
               </Typography>
               <Button

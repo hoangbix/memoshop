@@ -34,3 +34,34 @@ a {
 button {
   text-transform: unset !important;
 }
+
+.css-tfdy56-MuiTreeItem-content {
+  flex-direction: row-reverse !important;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+.sticky-bar {
+  animation: 700ms ease-in-out 0s normal none 1 running fadeInDown;
+  transition: all .3s ease 0s;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 62px;
+  z-index: 99;
+  left: 0;
+  background: #fff;
+  padding: 10px 0;
+}

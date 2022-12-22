@@ -5,7 +5,7 @@ import HotlineIcon from 'src/images/icons/icon-headphone.svg';
 
 export const HotlineMenu = () => {
   return (
-    <Box sx={{ display: { xs: 'none', lg: 'flex' }, alignItems: 'center', gap: '10px' }}>
+    <Box sx={{ display: { xs: 'none', xl: 'flex' }, alignItems: 'center', gap: '10px' }}>
       <HotlineIcon />
       <Box>
         <Typography sx={{ fontSize: '26px', color: '#3BB77E', fontWeight: 700 }}>

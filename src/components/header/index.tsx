@@ -68,7 +68,13 @@ const Header = (props: Props) => {
           </Typography>
         </Container>
       </HeadertWrapper>
-      <Box sx={{ padding: '10px 0', borderBottom: '1px solid #cccccc80' }} className={trigger ? 'sticky-bar' : ''}>
+      <Box
+        sx={{
+          padding: { sx: 0, md: '10px 0' },
+          borderBottom: '1px solid #cccccc80',
+        }}
+        className={trigger ? 'sticky-bar' : ''}
+      >
         <Toolbar disableGutters>
           <Container
             maxWidth={'xxl'}

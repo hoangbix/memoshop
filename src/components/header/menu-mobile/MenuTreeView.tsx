@@ -12,15 +12,18 @@ interface Props {
   to?: string;
 }
 
-const TreeItemCustom = ({ children, nodeId, label }: Props) => {
+const TreeItemCustom = ({ children, nodeId, label, to = '/' }: Props) => {
   return (
     <TreeItem
       nodeId={nodeId}
       label={label}
       sx={{
         '& .MuiTreeItem-label': {
-          fontSize: '14px !important',
+          fontSize: '16px !important',
           fontWeight: 700,
+        },
+        ':focus': {
+          backgroundColor: 'transparent',
         },
       }}
     >
@@ -39,7 +42,7 @@ const MenuTreeView = ({ handleDrawerToggle }: { handleDrawerToggle: () => void }
         sx={{
           '& .MuiTreeItem-label': {
             fontSize: '14px !important',
-            fontWeight: 500,
+            fontWeight: 400,
           },
         }}
       >
@@ -68,7 +71,7 @@ const MenuTreeView = ({ handleDrawerToggle }: { handleDrawerToggle: () => void }
           },
         }}
       >
-        <TreeItemCustom nodeId={'1'} label={'Cửa hàng '}>
+        <TreeItemCustom nodeId={'1'} label={'Cửa hàng'}>
           <TreeItemChildrenCustom to={'/'} nodeId="2" label="Rau xanh" />
           <TreeItemChildrenCustom to={'/'} nodeId="3" label="Sản phẩm đóng gói" />
           <TreeItemChildrenCustom to={'/'} nodeId="4" label="Thịt & gia cầm" />
@@ -81,6 +84,15 @@ const MenuTreeView = ({ handleDrawerToggle }: { handleDrawerToggle: () => void }
           <TreeItemChildrenCustom to={'/about'} nodeId="6" label="Danh sách nhà cung cấp" />
           <TreeItemChildrenCustom to={'/'} nodeId="7" label="Cam kết về nhà cung cấp" />
           <TreeItemChildrenCustom to={'/'} nodeId="8" label="Đăng ký làm nhà cung cấp" />
+        </TreeItemCustom>
+        <TreeItemCustom nodeId="9" label="Đề xuất cho bạn">
+          <TreeItemChildrenCustom to={'/about'} nodeId="10" label="Rau củ quả" />
+          <TreeItemChildrenCustom to={'/'} nodeId="11" label="Thực phẩm tươi" />
+          <TreeItemChildrenCustom to={'/'} nodeId="12" label="Sản phẩm đóng gói" />
+        </TreeItemCustom>
+        <TreeItemCustom nodeId="13" label="Tin tức & Mẹo">
+          <TreeItemChildrenCustom to={'/'} nodeId="14" label="Tin tức" />
+          <TreeItemChildrenCustom to={'/about'} nodeId="15" label="Mẹo" />
         </TreeItemCustom>
       </TreeView>
     </Box>

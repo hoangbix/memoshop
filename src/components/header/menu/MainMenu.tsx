@@ -166,7 +166,7 @@ export const MainMenu = () => {
               },
             }}
           >
-            <Link href={'/'}>Cửa hàng</Link>
+            <Link href={'/san-pham'}>Cửa hàng</Link>
             <BiChevronDown fontSize={'20px'} />
           </Typography>
         </HtmlTooltip>

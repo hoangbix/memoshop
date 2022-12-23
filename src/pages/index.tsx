@@ -1,9 +1,7 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 
-import Footer from 'src/components/Footer';
 import Carousel from 'src/components/Carousel';
-import Container from '@mui/material/Container';
 import BestSells from 'src/components/BestSells';
 import TabProducts from 'src/components/TabProducts';
 import DefaultLayout from 'src/layouts/DefaultLayout';
@@ -19,7 +17,7 @@ const DealsCard = dynamic(() => import('src/components/DealsCard'), {
 
 const HomePage = () => {
   return (
-    <Container maxWidth={'xxl'}>
+    <Fragment>
       <Carousel />
       <PopularCategories />
       <BannerTopCard />
@@ -29,8 +27,7 @@ const HomePage = () => {
       <ProductHorizontal />
       <BannerFooter />
       <ServiceFooter />
-      <Footer />
-    </Container>
+    </Fragment>
   );
 };
 

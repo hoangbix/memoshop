@@ -73,8 +73,8 @@ const FooterMenu = () => {
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', gap: '15px', my: '20px' }}>
-              <Box component={'img'} width={'128px'} src={'images/assets/app-store.jpg'} />
-              <Box component={'img'} width={'128px'} src={'images/assets/google-play.jpg'} />
+              <Box component={'img'} width={'128px'} src={'/images/assets/app-store.jpg'} />
+              <Box component={'img'} width={'128px'} src={'/images/assets/google-play.jpg'} />
             </Box>
             <Box sx={{ display: 'flex' }}>
               <Typography fontSize={'15px'} color={'#253D4E'}>
@@ -82,7 +82,7 @@ const FooterMenu = () => {
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', gap: '15px', my: '20px' }}>
-              <Box component={'img'} width={'224px'} src={'images/assets/payment-method.png'} />
+              <Box component={'img'} width={'224px'} src={'/images/assets/payment-method.png'} />
             </Box>
           </Box>
         </Grid>

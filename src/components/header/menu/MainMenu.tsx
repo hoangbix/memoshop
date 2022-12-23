@@ -61,7 +61,6 @@ export const MainMenu = () => {
           <Link href={'/'}>Trang chủ</Link>
         </Typography>
         <HtmlTooltip
-          open={true}
           title={
             <Fragment>
               <Box

@@ -61,6 +61,7 @@ export const MainMenu = () => {
           <Link href={'/'}>Trang chủ</Link>
         </Typography>
         <HtmlTooltip
+          open={true}
           title={
             <Fragment>
               <Box
@@ -72,11 +73,12 @@ export const MainMenu = () => {
                   display: 'flex',
                   justifyContent: 'space-between',
                   gap: '50px',
+                  minHeight: '300px',
                 }}
               >
                 <Box sx={{ width: '100%' }}>
                   <List
-                    sx={{ width: '100%', minWidth: '200px', bgcolor: 'background.paper' }}
+                    sx={{ width: '100%', bgcolor: 'background.paper' }}
                     component="nav"
                     aria-labelledby="nested-list-subheader"
                     subheader={
@@ -99,7 +101,7 @@ export const MainMenu = () => {
                   </List>
                 </Box>
                 <List
-                  sx={{ width: '100%', minWidth: '200px', bgcolor: 'background.paper' }}
+                  sx={{ width: '100%', bgcolor: 'background.paper' }}
                   component="nav"
                   aria-labelledby="nested-list-subheader"
                   subheader={
@@ -121,7 +123,7 @@ export const MainMenu = () => {
                   ))}
                 </List>
                 <List
-                  sx={{ width: '100%', minWidth: '200px', bgcolor: 'background.paper' }}
+                  sx={{ width: '100%', bgcolor: 'background.paper' }}
                   component="nav"
                   aria-labelledby="nested-list-subheader"
                   subheader={
@@ -142,11 +144,11 @@ export const MainMenu = () => {
                     </ListItemText>
                   ))}
                 </List>
-                <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
+                <Box sx={{ display: { xs: 'none', lg: 'flex' }, width: '100%' }}>
                   <img
                     src={'https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-menu.png'}
                     width={'508px'}
-                    height={'322px'}
+                    height={'100%'}
                     alt={'Banner Menu'}
                     style={{ borderRadius: '20px' }}
                   />

@@ -57,7 +57,8 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
       <Box sx={{ position: 'relative' }}>
         <Card
           sx={{
-            width: '100%',
+            width: { xs: 240, sm: 220, md: '100%' },
+            maxWidth: '100%',
             height: { xs: 'auto', lg: 520 },
             boxShadow: 'none',
             border: '1px solid #d8ebe5',
@@ -67,10 +68,9 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
         >
           <CardMedia
             component="img"
-            height="217"
             image={data.image}
             alt="green iguana"
-            sx={{ borderRadius: '10px', backgroundPosition: 'cover' }}
+            sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
           />
           <CardContent sx={{ padding: '10px 0', mb: '10px' }}>
             <Typography
@@ -147,8 +147,13 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             </Typography>
           </Box>
 
-          <Box sx={{ my: '10px', display: { xs: 'none', lg: 'flex', alignItems: 'center', gap: '8px' } }}>
-            <Typography color={'#253D4E'} fontSize={'14px'} fontWeight={600}>
+          <Box sx={{ my: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Typography
+              color={'#253D4E'}
+              fontSize={'14px'}
+              fontWeight={600}
+              sx={{ display: { xs: 'none', lg: 'block' } }}
+            >
               Tình trạng:
             </Typography>
             <Typography color={renderSold().color} fontSize={'14px'} fontWeight={600}>

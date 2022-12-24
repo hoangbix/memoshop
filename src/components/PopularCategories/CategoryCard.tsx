@@ -22,7 +22,7 @@ const CategoryCard = ({ data }: { data: Props }) => {
         sx={{
           width: 250,
           maxWidth: '100%',
-          height: { xs: '170px', lg: 205 },
+          height: { xs: 150, lg: 180 },
           maxHeight: '100%',
           margin: '15px',
           padding: { xs: '0', md: '10px' },
@@ -35,13 +35,30 @@ const CategoryCard = ({ data }: { data: Props }) => {
       >
         <MuiLink component={Link} href={'/'}>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-            <CardMedia component="img" width={'80px'} height={'80px'} image={img} alt={title} />
+            <CardMedia
+              component="img"
+              width={'80px'}
+              height={'80px'}
+              image={img}
+              alt={title}
+              sx={{ objectFit: 'none' }}
+            />
           </motion.div>
-          <CardContent sx={{ mt: '10px', padding: { xs: '5px', md: '10px' } }}>
-            <Typography variant="h5" fontSize={{ xs: '14px', md: '16px' }} fontWeight={600}>
+          <CardContent
+            sx={{
+              mt: '10px',
+              padding: '0',
+            }}
+          >
+            <Typography textAlign={'center'} variant="h5" fontSize={{ xs: '14px', md: '16px' }} fontWeight={600}>
               {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary" fontSize={{ xs: '12px', md: '14px' }}>
+            <Typography
+              textAlign={'center'}
+              variant="body2"
+              color="text.secondary"
+              fontSize={{ xs: '12px', md: '14px' }}
+            >
               {`${quantity} sản phẩm`}
             </Typography>
           </CardContent>

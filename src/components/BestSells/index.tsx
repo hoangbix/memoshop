@@ -118,7 +118,7 @@ const BestSells = () => {
             />
           </Paper>
         </Box>
-        <Box sx={{ width: { xs: '100%', xl: '70%' }, height: 520 }}>
+        <Box sx={{ flex: 1, width: '75%', height: 520 }}>
           <Slider {...settings}>
             {filteredItems.slice(0, 10).map((item) => (
               <Box

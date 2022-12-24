@@ -13,7 +13,7 @@ export const BreadcrumbsCustom = () => {
   return (
     <Box sx={{ height: 65, display: 'flex', alignItems: 'center' }}>
       <div role="presentation" onClick={handleClick}>
-        <Breadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs aria-label="breadcrumb" separator="›">
           <MuiLink
             component={Link}
             underline="hover"

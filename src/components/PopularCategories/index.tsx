@@ -79,7 +79,7 @@ const listCategory = [
 const settings = {
   dots: false,
   infinite: true,
-  slidesToShow: 8,
+  slidesToShow: 2,
   slidesToScroll: 1,
   autoplay: true,
   speed: 3000,
@@ -87,12 +87,19 @@ const settings = {
   cssEase: 'linear',
   responsive: [
     {
+      breakpoint: 2000,
+      settings: {
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        infinite: true,
+      },
+    },
+    {
       breakpoint: 1224,
       settings: {
         slidesToShow: 6,
         slidesToScroll: 1,
         infinite: true,
-        dots: true,
       },
     },
     {

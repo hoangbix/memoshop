@@ -1,12 +1,11 @@
-import { Box, Chip, Typography } from '@mui/material';
+import { Box, Chip, Grid, Typography } from '@mui/material';
 import { ReactNode, useState } from 'react';
 import { BreadcrumbsCustom } from 'src/components/BreadcrumbsCustom';
 import DefaultLayout from 'src/layouts/DefaultLayout';
 import { IoIosClose } from 'react-icons/io';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select';
+import { FilterProduct } from 'src/components/FilterProduct';
+import { ListProduct } from 'src/components/ListProduct';
 
 const ListProductPage = () => {
   const [age, setAge] = useState('');
@@ -112,25 +111,17 @@ const ListProductPage = () => {
         <Typography color={'#7E7E7E'} fontSize={'14px'}>
           Tìm thấy <span style={{ color: '#3BB77E', fontWeight: 600 }}>50</span> sản phẩm
         </Typography>
-        <Box sx={{}}>
-          <FormControl>
-            <InputLabel id="demo-simple-select-label" sx={{ padding: '0 !important', fontSize: '14px', top: '-5px' }}>
-              Hiển thị
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              value={age}
-              label="Hiển thị"
-              onChange={handleChange}
-              sx={{ width: 140, height: 44 }}
-            >
-              <MenuItem value={10}>20</MenuItem>
-              <MenuItem value={20}>50</MenuItem>
-              <MenuItem value={30}>100</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
       </Box>
+
+      {/******** Body *********** */}
+      <Grid container justifyContent="space-between" spacing={5} columns={{ xs: 4, lg: 10 }}>
+        <Grid item xs={4} sm={4} md={2}>
+          <FilterProduct />
+        </Grid>
+        <Grid item xs={4} sm={4} md={8}>
+          <ListProduct />
+        </Grid>
+      </Grid>
     </Box>
   );
 };

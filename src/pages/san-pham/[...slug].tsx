@@ -66,13 +66,13 @@ const ProductDetail = () => {
       <Box sx={{ borderBottom: '1px solid #cccccc80' }}>
         <BreadcrumbsCustom />
       </Box>
-      <Box sx={{ my: '30px' }}>
+      <Box sx={{ my: '30px', padding: '10px' }}>
         <Grid container justifyContent="space-between" spacing={5} columns={{ xs: 4, lg: 8 }}>
           <Grid item xs={4} sm={4} md={3}>
             <Box
               sx={{
                 width: 528,
-                height: 528,
+                height: { xs: 'auto', lg: 528 },
                 maxWidth: '100%',
                 border: '1px solid #cccccc80',
                 borderRadius: '20px',
@@ -81,7 +81,7 @@ const ProductDetail = () => {
             >
               <Box
                 component={'img'}
-                sx={{ width: '100%', height: '100%', borderRadius: '20px' }}
+                sx={{ width: '100%', height: '100%', borderRadius: '20px', objectFit: 'cover' }}
                 src={'https://wp.alithemes.com/html/nest/demo/assets/imgs/shop/product-16-7.jpg'}
               />
             </Box>
@@ -113,7 +113,7 @@ const ProductDetail = () => {
             </Box>
           </Grid>
           <Grid item xs={4} sm={4} md={5} sx={{ flex: 1 }}>
-            <Box sx={{ ml: '30px' }}>
+            <Box sx={{ ml: { xs: '0', md: '30px' } }}>
               <Typography
                 color={'#f74b81'}
                 sx={{
@@ -131,14 +131,14 @@ const ProductDetail = () => {
               <Typography
                 variant={'h2'}
                 sx={{
-                  fontSize: '40px',
+                  fontSize: { xs: '24px', lg: '40px' },
                   color: '#253D4E',
                   fontWeight: 700,
                   lineHeight: 1.2,
                   display: '-webkit-box',
                   overflow: 'hidden',
                   WebkitBoxOrient: 'vertical',
-                  WebkitLineClamp: 2,
+                  WebkitLineClamp: { xs: 3, lg: 2 },
                 }}
               >
                 Hạt hạnh nhân hữu cơ Smart Organic 200Gr
@@ -148,7 +148,7 @@ const ProductDetail = () => {
                 <Typography>(32 đánh giá)</Typography>
               </Box>
               <Box sx={{ padding: '15px 0', display: { xs: 'block', md: 'flex' }, alignItems: 'center', gap: '10px' }}>
-                <Typography color={'#3BB77E'} fontSize="58px" fontWeight={'bold'}>
+                <Typography color={'#3BB77E'} fontSize={{ xs: '28px', lg: '58px' }} fontWeight={'bold'}>
                   {(135000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                 </Typography>
                 <Box sx={{ display: { xs: 'flex', md: 'block' }, alignItems: 'center', gap: '10px' }}>
@@ -157,7 +157,7 @@ const ProductDetail = () => {
                   </Typography>
                   <Typography
                     color={'#adadad'}
-                    fontSize="28px"
+                    fontSize={{ xs: '20px', lg: '28px' }}
                     fontWeight={'600'}
                     sx={{ textDecoration: 'line-through' }}
                   >
@@ -169,7 +169,7 @@ const ProductDetail = () => {
                 gutterBottom
                 sx={{
                   color: '#7E7E7E',
-                  fontSize: '17px',
+                  fontSize: { xs: '14px', lg: '17px' },
                   fontWeight: 600,
                   lineHeight: '24px',
                   display: '-webkit-box',
@@ -182,7 +182,9 @@ const ProductDetail = () => {
                 minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi.
               </Typography>
               <FormControl sx={{ my: '20px' }}>
-                <FormLabel id="demo-row-radio-buttons-group-label">Kích thước/Trọng lượng</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ fontSize: { xs: '14px', lg: '16px' } }}>
+                  Kích thước/Trọng lượng
+                </FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"

@@ -59,7 +59,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             boxShadow: 'none',
             border: '1px solid #d8ebe5',
             borderRadius: '15px',
-            padding: '15px',
+            padding: { xs: '10px 5px', sm: '10px', md: '15px' },
           }}
         >
           <CardMedia
@@ -88,7 +88,6 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             </Typography>
             <Box
               sx={{
-                width: 200,
                 display: 'flex',
                 alignItems: 'end',
               }}
@@ -145,9 +144,14 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             </Typography>
           </Box>
 
-          <Typography color={'#253D4E'} fontSize={'14px'} fontWeight={600} sx={{ my: '10px' }}>
-            Tình trạng: <span style={{ color: renderSold().color }}>{renderSold().text}</span>
-          </Typography>
+          <Box sx={{ my: '10px', display: { sm: 'block', lg: 'flex', alignItems: 'center', gap: '8px' } }}>
+            <Typography color={'#253D4E'} fontSize={'14px'} fontWeight={600}>
+              Tình trạng:
+            </Typography>
+            <Typography color={renderSold().color} fontSize={'14px'} fontWeight={600}>
+              {renderSold().text}
+            </Typography>
+          </Box>
 
           <CardActions
             sx={{
@@ -163,12 +167,13 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
               disabled={data.quantity - data.sold === 0}
               sx={{
                 width: '100%',
-                height: '36px',
+                height: '40px',
                 backgroundColor: '#3BB77E',
                 color: 'white',
                 fontWeight: 700,
                 borderRadius: '1px',
                 mt: '10px',
+                padding: { sm: '4px 2px', lg: 'auto' },
               }}
             >
               Thêm vào giỏ hàng

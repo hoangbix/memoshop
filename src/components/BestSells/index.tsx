@@ -24,7 +24,7 @@ const settings = {
   dots: false,
   infinite: true,
   speed: 500,
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 2000,
   slidesToShow: 4,
   slidesToScroll: 1,
@@ -48,6 +48,13 @@ const settings = {
     },
     {
       breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 350,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

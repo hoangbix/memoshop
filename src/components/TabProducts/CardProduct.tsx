@@ -34,7 +34,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           sx={{
             width: 'auto',
             maxWidth: '100%',
-            height: { xs: 420, sm: 420, md: 470 },
+            height: { sm: 380, md: 470 },
             maxHeight: '100%',
             boxShadow: 'none',
             border: '1px solid #DEF9EC',

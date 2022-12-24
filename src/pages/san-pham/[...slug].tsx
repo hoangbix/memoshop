@@ -1,16 +1,4 @@
-import {
-  Box,
-  BoxProps,
-  Button,
-  Grid,
-  List,
-  ListItem,
-  Paper,
-  Rating,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Box, BoxProps, Button, Grid, List, ListItem, Rating, Stack, TextField, Typography } from '@mui/material';
 import { Fragment, ReactNode } from 'react';
 import { BreadcrumbsCustom } from 'src/components/BreadcrumbsCustom';
 import DefaultLayout from 'src/layouts/DefaultLayout';
@@ -23,7 +11,6 @@ import FormLabel from '@mui/material/FormLabel';
 import { TabsDesc } from 'src/components/ProductSlider/TabsDesc';
 import { styled } from '@mui/material/styles';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-import { BiLogInCircle } from 'react-icons/bi';
 
 import { BiCart } from 'react-icons/bi';
 import ComprareIcon from 'src/images/icons/compare.svg';
@@ -199,7 +186,7 @@ const ProductDetail = () => {
                   <FormControlLabel value="150" control={<Radio />} label="150g" />
                 </RadioGroup>
               </FormControl>
-              <Box sx={{ display: { sx: 'block', md: 'flex' }, alignItems: 'center', gap: '15px' }}>
+              <Box sx={{ display: { xs: 'block', md: 'flex' }, alignItems: 'center', gap: '15px' }}>
                 <Box sx={{ display: 'flex', gap: '10px', mb: '10px' }}>
                   <TextField
                     inputProps={{

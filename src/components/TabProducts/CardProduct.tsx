@@ -34,28 +34,33 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           sx={{
             width: 'auto',
             maxWidth: '100%',
-            height: 470,
+            height: { xs: 420, sm: 420, md: 470 },
             maxHeight: '100%',
             boxShadow: 'none',
             border: '1px solid #DEF9EC',
             borderRadius: '15px',
-            padding: '15px',
+            padding: { xs: '5px', md: '15px' },
           }}
         >
-          <CardMedia component="img" height="217" image={data.image} alt="green iguana" sx={{ borderRadius: '10px' }} />
+          <CardMedia
+            component="img"
+            image={data.image}
+            alt="green iguana"
+            sx={{ borderRadius: '10px', objectFit: 'contain', height: { xs: 150, md: 217 } }}
+          />
           <CardContent sx={{ padding: '10px 0', mb: '10px' }}>
             <Typography
               gutterBottom
               variant="h5"
-              height={'43px'}
+              height={{ xs: 40, md: 43 }}
               sx={{
                 color: '#253D4E',
-                fontSize: '16px',
                 fontWeight: 600,
                 display: '-webkit-box',
                 overflow: 'hidden',
                 WebkitBoxOrient: 'vertical',
                 WebkitLineClamp: 2,
+                fontSize: { xs: '14px', md: '16px' },
               }}
             >
               {data.name}
@@ -89,12 +94,20 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           </Typography>
           <CardActions
             sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
+              display: { xs: 'block', sm: 'flex' },
+              justifyContent: { xs: 'center', sm: 'space-between' },
               alignItems: 'center',
             }}
           >
-            <Box>
+            <Box
+              sx={{
+                display: { xs: 'flex', sm: 'block' },
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '5px',
+                mb: '10px',
+              }}
+            >
               {data.price > 0 ? (
                 <>
                   <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
@@ -120,7 +133,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                 </Typography>
               )}
             </Box>
-            <Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'block' }, justifyContent: 'center', alignItems: 'center' }}>
               <Button
                 variant="outlined"
                 startIcon={<BiCart />}

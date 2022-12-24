@@ -29,18 +29,9 @@ const TabProducts = () => {
       <TabFilter onFilter={handleFilter} data={listTabProducts} title={'Sản phẩm phổ biến'} />
       <Box sx={{ mt: '44px' }}>
         <Grid item xs={3}>
-          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, md: 8, lg: 12, xl: 16, xxl: 20 }}>
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 8, md: 12, lg: 16, xl: 20 }}>
             {filteredItems.slice(0, 10).map((prod) => (
-              <Grid
-                key={prod.id}
-                item
-                xs={4}
-                md={4}
-                lg={4}
-                xl={4}
-                xxl={4}
-                sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
-              >
+              <Grid key={prod.id} item xs={4} sx={{ padding: '5px 2px !important' }}>
                 <Box
                   component={motion.div}
                   layout

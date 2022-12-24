@@ -70,7 +70,7 @@ const Header = (props: Props) => {
       </HeadertWrapper>
       <Box
         sx={{
-          padding: { sx: 0, md: '10px 0' },
+          padding: { xs: 0, md: '10px 0' },
           borderBottom: '1px solid #cccccc80',
         }}
         className={trigger ? 'sticky-bar' : ''}

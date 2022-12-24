@@ -6,7 +6,7 @@ import { DealsCardItem } from './DealsCardItem';
 const DealsCard = ({ isDetail }: { isDetail?: boolean }) => {
   return (
     <Box sx={{ mb: '44px' }}>
-      <Box sx={{ display: { sx: 'block', lg: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
+      <Box sx={{ display: { xs: 'block', lg: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography
           color={'#253D4E'}
           fontSize={!isDetail ? { xs: '24px', md: '32px' } : { xs: '20px', md: '24px' }}

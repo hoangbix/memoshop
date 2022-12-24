@@ -35,7 +35,7 @@ const TabFilter = ({ onFilter, data, title }: Props) => {
   return (
     <Box
       sx={{
-        display: { sx: 'inline-bock', lg: 'flex' },
+        display: { xs: 'inline-bock', lg: 'flex' },
         justifyContent: 'space-between',
         alignItems: 'center',
         mt: '30px',

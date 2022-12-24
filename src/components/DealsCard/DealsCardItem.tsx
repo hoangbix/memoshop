@@ -49,15 +49,15 @@ export const DealsCardItem = ({ isDetail }: { isDetail?: boolean }) => {
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ sx: 4, md: 8, xl: 16 }}
+        columns={{ xs: 4, md: 8, xl: 16 }}
         sx={{ display: 'flex', justifyContent: 'center' }}
       >
         {listBanners.map((item, i) => (
           <Grid key={i} item xs={4} sm={4} md={4} xl={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Paper
               sx={{
-                height: { sx: '100%', lg: 350 },
-                width: { sx: '100%', lg: 378 },
+                height: { xs: '100%', lg: 350 },
+                width: { xs: '100%', lg: 378 },
                 maxWidth: '100%',
                 borderRadius: '20px',
                 transition: '0.4s ease-in-out',
@@ -98,7 +98,7 @@ export const DealsCardItem = ({ isDetail }: { isDetail?: boolean }) => {
                     background: '#fff',
                     borderRadius: '15px',
                     boxShadow: '5px 5px 15px rgb(0 0 0 / 5%)',
-                    padding: { sx: '10px', lg: '20px' },
+                    padding: { xs: '10px', lg: '20px' },
                   }}
                 >
                   <Typography

@@ -41,7 +41,7 @@ const rows = [
 export const AdditionalInfo = () => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 400 }} aria-label="customized table">
+      <Table sx={{ minWidth: 300 }} aria-label="customized table">
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>

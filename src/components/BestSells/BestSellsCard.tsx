@@ -9,8 +9,11 @@ import Box from '@mui/material/Box';
 import { BiCart } from 'react-icons/bi';
 import { ProductType } from 'src/types/product';
 import MobileStepper from '@mui/material/MobileStepper';
+import { useMediaQuery } from '@mui/material';
 
 export const BestSellsCard = ({ data }: { data: ProductType }) => {
+  const isMobile = useMediaQuery('(max-width:650px)');
+
   const renderStatus = () => {
     let status = {
       text: '',
@@ -55,7 +58,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
         <Card
           sx={{
             width: '100%',
-            height: 520,
+            height: { xs: 'auto', lg: 520 },
             boxShadow: 'none',
             border: '1px solid #d8ebe5',
             borderRadius: '15px',
@@ -144,7 +147,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             </Typography>
           </Box>
 
-          <Box sx={{ my: '10px', display: { sm: 'block', lg: 'flex', alignItems: 'center', gap: '8px' } }}>
+          <Box sx={{ my: '10px', display: { xs: 'none', lg: 'flex', alignItems: 'center', gap: '8px' } }}>
             <Typography color={'#253D4E'} fontSize={'14px'} fontWeight={600}>
               Tình trạng:
             </Typography>
@@ -163,7 +166,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
           >
             <Button
               variant="contained"
-              startIcon={<BiCart />}
+              startIcon={!isMobile ? <BiCart /> : <></>}
               disabled={data.quantity - data.sold === 0}
               sx={{
                 width: '100%',

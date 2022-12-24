@@ -6,6 +6,7 @@ import { SyntheticEvent, useState } from 'react';
 import { AdditionalInfo } from './AdditionalInfo';
 import { Vendor } from './Vendor';
 import { ReviewDetail } from './ReviewDetail';
+import { useMediaQuery } from '@mui/material';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -42,6 +43,7 @@ function a11yProps(index: number) {
 
 export function TabsDesc() {
   const [value, setValue] = useState(0);
+  const smallScreen = useMediaQuery('(max-width: 768px)');
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -51,11 +53,14 @@ export function TabsDesc() {
     <Box
       sx={{ width: '100%', minHeight: 356, border: '1px solid #ececec', borderRadius: '20px', padding: '40px 50px' }}
     >
-      <Box>
+      <Box sx={{ display: smallScreen ? 'flex' : 'block', justifyContent: 'center' }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          variant="scrollable"
+          scrollButtons
+          aria-label="scrollable force tabs example"
+          orientation={smallScreen ? 'vertical' : 'horizontal'}
           TabIndicatorProps={{
             style: {
               display: 'none',
@@ -72,6 +77,7 @@ export function TabsDesc() {
               height: '40px',
               fontWeight: 700,
               mr: '15px',
+              mb: '10px',
             }}
           />
           <Tab
@@ -84,6 +90,7 @@ export function TabsDesc() {
               height: '40px',
               fontWeight: 700,
               mr: '15px',
+              mb: '10px',
             }}
           />
           <Tab
@@ -96,6 +103,7 @@ export function TabsDesc() {
               height: '40px',
               fontWeight: 700,
               mr: '15px',
+              mb: '10px',
             }}
           />
           <Tab
@@ -108,6 +116,7 @@ export function TabsDesc() {
               height: '40px',
               fontWeight: 700,
               mr: '15px',
+              mb: '10px',
             }}
           />
         </Tabs>

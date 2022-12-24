@@ -11,7 +11,7 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
 
 export const BreadcrumbsCustom = () => {
   return (
-    <Box sx={{ height: 65, display: 'flex', alignItems: 'center', borderBottom: '1px solid #cccccc80' }}>
+    <Box sx={{ height: 65, display: 'flex', alignItems: 'center' }}>
       <div role="presentation" onClick={handleClick}>
         <Breadcrumbs aria-label="breadcrumb">
           <MuiLink

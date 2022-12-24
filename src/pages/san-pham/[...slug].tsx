@@ -63,7 +63,9 @@ const ProductDetail = () => {
 
   return (
     <Fragment>
-      <BreadcrumbsCustom />
+      <Box sx={{ borderBottom: '1px solid #cccccc80' }}>
+        <BreadcrumbsCustom />
+      </Box>
       <Box sx={{ my: '30px' }}>
         <Grid container justifyContent="space-between" spacing={5} columns={{ xs: 4, lg: 8 }}>
           <Grid item xs={4} sm={4} md={3}>
@@ -74,6 +76,7 @@ const ProductDetail = () => {
                 maxWidth: '100%',
                 border: '1px solid #cccccc80',
                 borderRadius: '20px',
+                margin: '0 auto',
               }}
             >
               <Box
@@ -89,6 +92,7 @@ const ProductDetail = () => {
                 display: 'flex',
                 gap: '20px',
                 my: '20px',
+                justifyContent: 'center',
               }}
             >
               <Box
@@ -191,55 +195,60 @@ const ProductDetail = () => {
                   <FormControlLabel value="150" control={<Radio />} label="150g" />
                 </RadioGroup>
               </FormControl>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                <TextField
-                  inputProps={{
-                    type: 'number',
-                    min: 1,
-                    max: 10,
-                    defaultValue: 1,
-                    style: {
-                      fontWeight: 700,
-                      minWidth: 60,
-                      height: 15,
-                      border: '2px solid #3BB77E',
-                      borderRadius: '5px',
-                      textAlign: 'center',
-                    },
-                  }}
-                />
+              <Box sx={{ display: { sx: 'block', md: 'flex' }, alignItems: 'center', gap: '15px' }}>
+                <Box sx={{ display: 'flex', gap: '10px', mb: '10px' }}>
+                  <TextField
+                    inputProps={{
+                      type: 'number',
+                      min: 1,
+                      max: 10,
+                      defaultValue: 1,
+                      style: {
+                        fontWeight: 700,
+                        minWidth: 40,
+                        maxWidth: '100%',
+                        height: 15,
+                        border: '2px solid #3BB77E',
+                        borderRadius: '5px',
+                        textAlign: 'center',
+                      },
+                    }}
+                  />
 
-                <Button
-                  variant="contained"
-                  startIcon={<BiCart />}
-                  sx={{
-                    width: 224,
-                    maxWidth: '100%',
-                    height: '52px',
-                    backgroundColor: '#3BB77E',
-                    color: 'white',
-                    fontWeight: 700,
-                    borderRadius: '5px',
-                  }}
-                >
-                  Thêm vào giỏ hàng
-                </Button>
-                <LightTooltip title="Thêm vào danh sách yêu thích">
                   <Button
-                    variant="outlined"
-                    sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
+                    variant="contained"
+                    startIcon={<BiCart />}
+                    sx={{
+                      width: 224,
+                      maxWidth: '100%',
+                      height: '52px',
+                      backgroundColor: '#3BB77E',
+                      color: 'white',
+                      fontWeight: 700,
+                      borderRadius: '5px',
+                    }}
                   >
-                    <HeartIcon />
+                    Thêm vào giỏ hàng
                   </Button>
-                </LightTooltip>
-                <LightTooltip title="So sánh">
-                  <Button
-                    variant="outlined"
-                    sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
-                  >
-                    <ComprareIcon />
-                  </Button>
-                </LightTooltip>
+                </Box>
+                <Box sx={{ display: 'flex', gap: '10px', mb: '10px' }}>
+                  <LightTooltip title="Thêm vào danh sách yêu thích">
+                    <Button
+                      variant="outlined"
+                      sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
+                    >
+                      <HeartIcon />
+                    </Button>
+                  </LightTooltip>
+                  <LightTooltip title="So sánh">
+                    <Button
+                      variant="outlined"
+                      sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
+                    >
+                      <ComprareIcon />
+                    </Button>
+                  </LightTooltip>
+                </Box>
               </Box>
               <Box sx={{ display: 'flex', gap: '30px', fontWeight: 600 }}>
                 <List>

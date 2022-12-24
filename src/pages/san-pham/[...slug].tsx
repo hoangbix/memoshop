@@ -147,11 +147,11 @@ const ProductDetail = () => {
                 <Rating size="small" name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
                 <Typography>(32 đánh giá)</Typography>
               </Box>
-              <Box sx={{ padding: '15px 0', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Box sx={{ padding: '15px 0', display: { xs: 'block', md: 'flex' }, alignItems: 'center', gap: '10px' }}>
                 <Typography color={'#3BB77E'} fontSize="58px" fontWeight={'bold'}>
                   {(135000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                 </Typography>
-                <Box>
+                <Box sx={{ display: { xs: 'flex', md: 'block' }, alignItems: 'center', gap: '10px' }}>
                   <Typography color={'#FDC040'} fontSize="14px" fontWeight={'bold'}>
                     Giảm 12%
                   </Typography>

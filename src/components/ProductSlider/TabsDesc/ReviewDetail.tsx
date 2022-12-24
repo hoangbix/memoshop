@@ -57,9 +57,9 @@ export const ReviewDetail = () => {
                   <Avatar
                     {...stringAvatar('Đoan Dung')}
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqybUg787WzRWBUU4wEvrPNEf7MkcgAJXiLQ&usqp=CAU"
-                    sx={{ width: 80, height: 80 }}
+                    sx={{ width: { xs: 50, md: 80 }, height: { xs: 50, md: 80 } }}
                   />
-                  <Typography variant="subtitle1" color="#3BB789" fontSize={'14px'} fontWeight={700}>
+                  <Typography color="#3BB789" fontSize={'14px'} fontWeight={700}>
                     Đoan Dung
                   </Typography>
                 </Box>

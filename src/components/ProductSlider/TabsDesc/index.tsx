@@ -51,7 +51,13 @@ export function TabsDesc() {
 
   return (
     <Box
-      sx={{ width: '100%', minHeight: 356, border: '1px solid #ececec', borderRadius: '20px', padding: '40px 50px' }}
+      sx={{
+        width: '100%',
+        minHeight: 356,
+        border: '1px solid #ececec',
+        borderRadius: '20px',
+        padding: { sx: '10px 15px', md: '40px 50px' },
+      }}
     >
       <Box sx={{ display: smallScreen ? 'flex' : 'block', justifyContent: 'center' }}>
         <Tabs

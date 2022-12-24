@@ -5,7 +5,7 @@ const breakpoints = () => ({
     md: 600,
     lg: 800,
     xl: 1000,
-    xxl: 1400,
+    xxl: 1610,
   },
 });
 

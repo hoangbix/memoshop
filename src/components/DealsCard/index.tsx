@@ -3,23 +3,32 @@ import Link from 'next/link';
 import { BiChevronsRight } from 'react-icons/bi';
 import { DealsCardItem } from './DealsCardItem';
 
-const DealsCard = () => {
+const DealsCard = ({ isDetail }: { isDetail?: boolean }) => {
   return (
     <Box sx={{ mb: '44px' }}>
       <Box sx={{ display: { sx: 'block', lg: 'flex' }, justifyContent: 'space-between', alignItems: 'center' }}>
-        <Typography color={'#253D4E'} fontSize={{ xs: '24px', md: '32px' }} fontWeight={700}>
+        <Typography
+          color={'#253D4E'}
+          fontSize={!isDetail ? { xs: '24px', md: '32px' } : { xs: '20px', md: '24px' }}
+          fontWeight={700}
+        >
           Ưu đãi chào năm mới
         </Typography>
         <Button
           component={Link}
           href={'/'}
-          sx={{ fontSize: '16px', textTransform: 'none', color: '#3BB77E !important', fontWeight: 600 }}
+          sx={{
+            fontSize: isDetail ? '14px' : '16px',
+            textTransform: 'none',
+            color: '#3BB77E !important',
+            fontWeight: 600,
+          }}
           endIcon={<BiChevronsRight />}
         >
           Xem tất cả ưu đãi
         </Button>
       </Box>
-      <DealsCardItem />
+      <DealsCardItem isDetail />
     </Box>
   );
 };

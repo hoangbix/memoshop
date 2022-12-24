@@ -29,12 +29,12 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-      <Box sx={{ position: 'relative' }}>
+      <Box sx={{ position: 'relative', width: '100%' }}>
         <Card
           sx={{
-            width: 280,
+            width: 'auto',
             maxWidth: '100%',
-            height: 490,
+            height: 470,
             maxHeight: '100%',
             boxShadow: 'none',
             border: '1px solid #DEF9EC',
@@ -90,7 +90,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
           <CardActions
             sx={{
               display: 'flex',
-              justifyContent: { xs: 'center', md: 'space-between' },
+              justifyContent: 'space-between',
               alignItems: 'center',
             }}
           >

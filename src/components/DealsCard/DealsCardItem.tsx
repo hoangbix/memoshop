@@ -43,7 +43,7 @@ const listBanners = [
     promotionDay: 'Tue Dec 27 2022 19:30:40 GMT+0700 (Indochina Time)',
   },
 ];
-export const DealsCardItem = () => {
+export const DealsCardItem = ({ isDetail }: { isDetail?: boolean }) => {
   return (
     <Box sx={{ mt: '30px' }}>
       <Grid
@@ -57,7 +57,8 @@ export const DealsCardItem = () => {
             <Paper
               sx={{
                 height: { sx: '100%', lg: 350 },
-                maxWidth: { sx: '100%', lg: 378 },
+                width: { sx: '100%', lg: 378 },
+                maxWidth: '100%',
                 borderRadius: '20px',
                 transition: '0.4s ease-in-out',
                 backgroundImage: `url("${item.img}")`,
@@ -79,6 +80,7 @@ export const DealsCardItem = () => {
                 sx={{
                   bottom: '-40%',
                   width: 325,
+                  maxWidth: '100%',
                   height: 335,
                   display: 'flex',
                   justifyContent: 'center',
@@ -96,7 +98,7 @@ export const DealsCardItem = () => {
                     background: '#fff',
                     borderRadius: '15px',
                     boxShadow: '5px 5px 15px rgb(0 0 0 / 5%)',
-                    padding: '20px',
+                    padding: { sx: '10px', lg: '20px' },
                   }}
                 >
                   <Typography
@@ -132,6 +134,7 @@ export const DealsCardItem = () => {
                       fontWeight: 700,
                       borderRadius: '1px',
                       mt: '20px',
+                      fontSize: { xs: '14px', lg: '16px' },
                     }}
                   >
                     Xem tất cả sản phẩm

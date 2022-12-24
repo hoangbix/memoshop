@@ -1,19 +1,17 @@
 import { Box, Chip, Grid, Typography } from '@mui/material';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { BreadcrumbsCustom } from 'src/components/BreadcrumbsCustom';
 import DefaultLayout from 'src/layouts/DefaultLayout';
 import { IoIosClose } from 'react-icons/io';
-import { SelectChangeEvent } from '@mui/material/Select';
 import { FilterProduct } from 'src/components/FilterProduct';
 import { ListProduct } from 'src/components/ListProduct';
+import dynamic from 'next/dynamic';
+
+const DealsCard = dynamic(() => import('src/components/DealsCard'), {
+  ssr: false,
+});
 
 const ListProductPage = () => {
-  const [age, setAge] = useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
-
   return (
     <Box sx={{ my: '30px' }}>
       {/******** Header *********** */}
@@ -114,14 +112,23 @@ const ListProductPage = () => {
       </Box>
 
       {/******** Body *********** */}
-      <Grid container justifyContent="space-between" spacing={5} columns={{ xs: 4, lg: 10 }}>
-        <Grid item xs={4} sm={4} md={2}>
+      <Grid
+        container
+        justifyContent="space-between"
+        spacing={5}
+        columns={{ xs: 4, xl: 13 }}
+        flexWrap={{ xs: 'wrap-reverse', xl: 'wrap' }}
+      >
+        <Grid item xs={4} lg={4} xl={3}>
           <FilterProduct />
         </Grid>
-        <Grid item xs={4} sm={4} md={8}>
+        <Grid item xs={4} lg={4} xl={10}>
           <ListProduct />
         </Grid>
       </Grid>
+      <Box sx={{ mt: '40px' }}>
+        <DealsCard isDetail />
+      </Box>
     </Box>
   );
 };

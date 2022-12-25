@@ -5,6 +5,7 @@ import ComprareIcon from 'src/images/icons/compare.svg';
 import HeartIcon from 'src/images/icons/icon-heart.svg';
 import CartIcon from 'src/images/icons/icon-cart.svg';
 import UserIcon from 'src/images/icons/icon-user.svg';
+import Link from 'next/link';
 
 export const HeaderAction = () => {
   return (
@@ -21,7 +22,7 @@ export const HeaderAction = () => {
         </Badge>
         <Typography sx={{ fontSize: '16px', mt: '10px', display: { xs: 'none', lg: 'flex' } }}>Yêu thích</Typography>
       </Button>
-      <Button sx={{ minWidth: '20px', gap: '5px' }}>
+      <Button sx={{ minWidth: '20px', gap: '5px' }} component={Link} href={'/gio-hang'}>
         <Badge badgeContent={4} color="primary">
           <CartIcon />
         </Badge>

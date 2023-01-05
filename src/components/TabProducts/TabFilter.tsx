@@ -73,7 +73,7 @@ const TabFilter = ({ onFilter, data, title }: Props) => {
                 component={motion.div}
                 label={item.name}
                 variants={itemVariants}
-                onClick={() => onFilter(item.category)}
+                onClick={() => onFilter(item.name)}
                 sx={{
                   fontWeight: 700,
                   color: '#253D4E',

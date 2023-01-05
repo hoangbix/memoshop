@@ -21,8 +21,14 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
     if (data.isNew) {
       status = { text: 'Mới', bg: '#5a7aff' };
     }
-    if (data.discount) {
-      status = { text: `-${data.discount}%`, bg: '#3BB77E' };
+    if (data.promotionalPrice) {
+      status = {
+        text: `-${Math.abs(((data.promotionalPrice - data.price) / data.price) * 100).toFixed(0)}%`,
+        bg: '#3BB77E',
+      };
+    }
+    if (data.isSelling) {
+      status = { text: 'Bán chạy', bg: '#FF4D49' };
     }
     return status;
   };
@@ -44,7 +50,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
         >
           <CardMedia
             component="img"
-            image={data.image}
+            image={data.images[0].url}
             alt="green iguana"
             sx={{ borderRadius: '10px', objectFit: 'contain', height: { xs: 150, md: 217 } }}
           />
@@ -63,9 +69,9 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                 fontSize: { xs: '14px', md: '16px' },
               }}
             >
-              {data.name}
+              {data.title}
             </Typography>
-            <Box
+            {/* <Box
               sx={{
                 width: 200,
                 display: 'flex',
@@ -74,7 +80,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
             >
               <Rating size="small" name="half-rating-read" defaultValue={data.rating} precision={0.5} readOnly />
               <Box sx={{ ml: 2, fontSize: '12px', fontWeight: 600 }}>({data.rating})</Box>
-            </Box>
+            </Box> */}
           </CardContent>
           <Typography
             gutterBottom
@@ -90,8 +96,9 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
               mb: '10px',
             }}
           >
-            {data.desc}
+            {data.shortDesc}
           </Typography>
+
           <CardActions
             sx={{
               display: { xs: 'block', sm: 'flex' },
@@ -113,14 +120,14 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                   <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
                     {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                   </Typography>
-                  {data.discount ? (
+                  {data.promotionalPrice ? (
                     <Typography
                       color={'#adadad'}
                       fontSize={{ xs: '12px', lg: '14px' }}
                       fontWeight={'600'}
                       sx={{ textDecoration: 'line-through' }}
                     >
-                      {(data.price + (data.price * data.discount) / 100).toLocaleString('vi-VN', {
+                      {data.promotionalPrice.toLocaleString('vi-VN', {
                         maximumFractionDigits: 2,
                       })}
                       đ
@@ -156,16 +163,18 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
             top: 0,
             left: 0,
             zIndex: 9,
-            width: '60px',
+            width: '65px',
             height: '31px',
             borderRadius: '15px 0 20px 0',
-            padding: '5px 20px 10px 15px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             backgroundColor: renderStatus().bg,
           }}
         >
           <Typography
             sx={{
-              fontSize: '12px',
+              fontSize: '10px',
               color: 'white',
               fontWeight: 600,
             }}

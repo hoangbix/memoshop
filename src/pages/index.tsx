@@ -10,18 +10,21 @@ import ServiceFooter from 'src/components/ServiceFooter';
 import { BannerTopCard } from 'src/components/BannerTop';
 import ProductHorizontal from 'src/components/ProductHorizontal';
 import PopularCategories from 'src/components/PopularCategories';
+import { GetStaticProps } from 'next';
+import axiosClient from 'src/apiClient/axiosClient';
+import { ProductType } from 'src/types/product';
 
 const DealsCard = dynamic(() => import('src/components/DealsCard'), {
   ssr: false,
 });
 
-const HomePage = () => {
+const HomePage = ({ data }: { data: ProductType[] }) => {
   return (
     <Fragment>
       <Carousel />
       <PopularCategories />
       <BannerTopCard />
-      <TabProducts />
+      <TabProducts data={data} />
       <BestSells />
       <DealsCard />
       <ProductHorizontal />
@@ -29,6 +32,16 @@ const HomePage = () => {
       <ServiceFooter />
     </Fragment>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axiosClient.get('/product');
+  const data: ProductType[] = await res.data;
+
+  return {
+    props: { data },
+    revalidate: 300,
+  };
 };
 
 HomePage.getLayout = (page: ReactNode) => <DefaultLayout>{page}</DefaultLayout>;

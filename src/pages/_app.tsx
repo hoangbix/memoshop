@@ -12,6 +12,8 @@ import { createEmotionCache } from 'src/core/utils/create-emotion-cache';
 import ThemeComponent from 'src/core/theme/ThemeComponent';
 import { SettingsConsumer } from 'src/core/context/settingsContext';
 import { Router } from 'next/router';
+import { Provider } from 'react-redux';
+import { store } from 'src/store';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -35,13 +37,15 @@ const App = (props: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => <Fragment>{page}</Fragment>);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <SettingsConsumer>
-        {({ settings }) => {
-          return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>;
-        }}
-      </SettingsConsumer>
-    </CacheProvider>
+    <Provider store={store}>
+      <CacheProvider value={emotionCache}>
+        <SettingsConsumer>
+          {({ settings }) => {
+            return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>;
+          }}
+        </SettingsConsumer>
+      </CacheProvider>
+    </Provider>
   );
 };
 

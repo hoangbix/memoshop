@@ -1,15 +1,16 @@
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Rating from '@mui/material/Rating';
+import Link from 'next/link';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 import { BiCart } from 'react-icons/bi';
-import { ProductType } from 'src/types/product';
-import MobileStepper from '@mui/material/MobileStepper';
+import Button from '@mui/material/Button';
+import Rating from '@mui/material/Rating';
 import { useMediaQuery } from '@mui/material';
+import CardMedia from '@mui/material/CardMedia';
+import { ProductType } from 'src/types/product';
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import MobileStepper from '@mui/material/MobileStepper';
 
 export const BestSellsCard = ({ data }: { data: ProductType }) => {
   const isMobile = useMediaQuery('(max-width:650px)');
@@ -69,39 +70,34 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             padding: { xs: '10px 5px', sm: '10px', md: '15px' },
           }}
         >
-          {data.images.length ? (
+          <Link href={`/san-pham/${data.slug}`} passHref>
             <CardMedia
               component="img"
               image={data.images[0].url}
               alt={data.title}
               sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
             />
-          ) : (
-            <CardMedia
-              component="img"
-              image={''}
-              alt={data.title}
-              sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
-            />
-          )}
+          </Link>
 
           <CardContent sx={{ padding: '10px 0', mb: '10px' }}>
-            <Typography
-              gutterBottom
-              variant="h5"
-              height={'43px'}
-              sx={{
-                color: '#253D4E',
-                fontSize: '16px',
-                fontWeight: 600,
-                display: '-webkit-box',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 2,
-              }}
-            >
-              {data.title}
-            </Typography>
+            <Link href={`/san-pham/${data.slug}`} passHref>
+              <Typography
+                gutterBottom
+                variant="h5"
+                height={'43px'}
+                sx={{
+                  color: '#253D4E',
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  display: '-webkit-box',
+                  overflow: 'hidden',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2,
+                }}
+              >
+                {data.title}
+              </Typography>
+            </Link>
             {/* <Box
               sx={{
                 display: 'flex',

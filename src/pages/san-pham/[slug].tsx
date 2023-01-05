@@ -118,7 +118,7 @@ const ProductDetail = (data: ProductType) => {
                     <Box key={index} sx={{ padding: '10px', cursor: 'pointer' }}>
                       <Box
                         component={'img'}
-                        sx={{ width: '100%', height: '100%', borderRadius: '20px' }}
+                        sx={{ width: '100%', height: '100%', borderRadius: '10px' }}
                         src={image.url}
                       />
                     </Box>

@@ -39,7 +39,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
       <Box sx={{ position: 'relative', width: '100%' }}>
         <Card
           sx={{
-            width: 'auto',
+            width: { sm: 250, md: 'auto' },
             maxWidth: '100%',
             height: { sm: 380, md: 470 },
             maxHeight: '100%',
@@ -150,7 +150,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                 variant="outlined"
                 startIcon={<BiCart />}
                 sx={{
-                  width: '84px',
+                  width: { xs: '100%', md: '84px' },
                   height: '36px',
                   backgroundColor: '#DEF9EC',
                   fontWeight: 700,

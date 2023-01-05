@@ -1,5 +1,5 @@
 import { Box, BoxProps, Button, Grid, List, ListItem, Rating, Stack, TextField, Typography } from '@mui/material';
-import { Fragment, ReactNode, useEffect } from 'react';
+import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { BreadcrumbsCustom } from 'src/components/BreadcrumbsCustom';
 import DefaultLayout from 'src/layouts/DefaultLayout';
 
@@ -28,6 +28,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from 'src/store';
 import Spinner from 'src/components/spinner';
 import { format } from 'date-fns';
+import Slider from 'react-slick';
 
 const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -68,6 +69,9 @@ const ProductDetail = (data: ProductType) => {
     dispatch(fetchProduct());
   }, [dispatch]);
 
+  const [nav1, setNav1] = useState<any>();
+  const [nav2, setNav2] = useState<any>();
+
   if (router.isFallback) {
     return <Spinner />;
   }
@@ -83,38 +87,45 @@ const ProductDetail = (data: ProductType) => {
             <Box
               sx={{
                 width: 528,
-                height: { xs: 'auto', lg: 528 },
                 maxWidth: '100%',
                 border: '1px solid #cccccc80',
-                borderRadius: '20px',
+                borderRadius: '5px',
                 margin: '0 auto',
               }}
             >
-              <Box
-                component={'img'}
-                sx={{ width: '100%', height: '100%', borderRadius: '20px', objectFit: 'cover' }}
-                src={data.images[0].url}
-              />
+              <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
+                {data.images.map((image, index) => (
+                  <Box
+                    key={index}
+                    component={'img'}
+                    sx={{ width: '100%', height: '100%', borderRadius: '5px', objectFit: 'cover' }}
+                    src={image.url}
+                  />
+                ))}
+              </Slider>
             </Box>
-            <Box
-              sx={{
-                width: '100%',
-                height: 118,
-                display: 'flex',
-                gap: '20px',
-                my: '20px',
-                justifyContent: 'center',
-              }}
-            >
-              {data.images.map((image, index) => (
-                <Box
-                  key={index}
-                  component={'img'}
-                  sx={{ width: 118, height: '100%', borderRadius: '10px' }}
-                  src={image.url}
-                />
-              ))}
-            </Box>
+
+            {data.images.length > 1 ? (
+              <Box sx={{ mt: '30px' }}>
+                <Slider
+                  asNavFor={nav1}
+                  ref={(slider2) => setNav2(slider2)}
+                  slidesToShow={data.images.length < 3 ? data.images.length : 3}
+                  swipeToSlide={true}
+                  focusOnSelect={true}
+                >
+                  {data.images.map((image, index) => (
+                    <Box key={index} sx={{ padding: '10px', cursor: 'pointer' }}>
+                      <Box
+                        component={'img'}
+                        sx={{ width: '100%', height: '100%', borderRadius: '20px' }}
+                        src={image.url}
+                      />
+                    </Box>
+                  ))}
+                </Slider>
+              </Box>
+            ) : null}
           </Grid>
           <Grid item xs={4} sm={4} md={5} sx={{ flex: 1 }}>
             <Box sx={{ ml: { xs: '0', md: '30px' } }}>
@@ -137,7 +148,7 @@ const ProductDetail = (data: ProductType) => {
               <Typography
                 variant={'h2'}
                 sx={{
-                  fontSize: { xs: '24px', lg: '40px' },
+                  fontSize: { xs: '20px', lg: '32px' },
                   color: '#253D4E',
                   fontWeight: 700,
                   lineHeight: 1.2,
@@ -154,7 +165,7 @@ const ProductDetail = (data: ProductType) => {
                 <Typography>(32 đánh giá)</Typography>
               </Box>
               <Box sx={{ padding: '15px 0', display: { xs: 'block', md: 'flex' }, alignItems: 'center', gap: '10px' }}>
-                <Typography color={'#3BB77E'} fontSize={{ xs: '28px', lg: '58px' }} fontWeight={'bold'}>
+                <Typography color={'#3BB77E'} fontSize={{ xs: '22px', lg: '38px' }} fontWeight={'bold'}>
                   {(135000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                 </Typography>
                 {data.promotionalPrice ? (
@@ -164,7 +175,7 @@ const ProductDetail = (data: ProductType) => {
                     </Typography>
                     <Typography
                       color={'#adadad'}
-                      fontSize={{ xs: '20px', lg: '28px' }}
+                      fontSize={{ xs: '18px', lg: '28px' }}
                       fontWeight={'600'}
                       sx={{ textDecoration: 'line-through' }}
                     >
@@ -177,7 +188,7 @@ const ProductDetail = (data: ProductType) => {
                 gutterBottom
                 sx={{
                   color: '#7E7E7E',
-                  fontSize: { xs: '14px', lg: '17px' },
+                  fontSize: { xs: '14px', lg: '16px' },
                   fontWeight: 600,
                   lineHeight: '24px',
                   display: '-webkit-box',
@@ -214,9 +225,9 @@ const ProductDetail = (data: ProductType) => {
                       defaultValue: 1,
                       style: {
                         fontWeight: 700,
-                        minWidth: 40,
+                        minWidth: 35,
                         maxWidth: '100%',
-                        height: 15,
+                        height: 12,
                         border: '2px solid #3BB77E',
                         borderRadius: '5px',
                         textAlign: 'center',
@@ -230,7 +241,7 @@ const ProductDetail = (data: ProductType) => {
                     sx={{
                       width: 224,
                       maxWidth: '100%',
-                      height: '52px',
+                      height: '48px',
                       backgroundColor: '#3BB77E',
                       color: 'white',
                       fontWeight: 700,
@@ -244,7 +255,13 @@ const ProductDetail = (data: ProductType) => {
                   <LightTooltip title="Thêm vào danh sách yêu thích">
                     <Button
                       variant="outlined"
-                      sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
+                      sx={{
+                        minWidth: '40px',
+                        height: '48px',
+                        borderColor: '#f1f1f1',
+                        gap: '5px',
+                        border: '1px solid #3bb77e',
+                      }}
                     >
                       <HeartIcon />
                     </Button>
@@ -252,7 +269,13 @@ const ProductDetail = (data: ProductType) => {
                   <LightTooltip title="So sánh">
                     <Button
                       variant="outlined"
-                      sx={{ minWidth: '40px', height: '52px', borderColor: '#f1f1f1', gap: '5px' }}
+                      sx={{
+                        minWidth: '40px',
+                        height: '48px',
+                        borderColor: '#f1f1f1',
+                        gap: '5px',
+                        border: '1px solid #3bb77e',
+                      }}
                     >
                       <ComprareIcon />
                     </Button>

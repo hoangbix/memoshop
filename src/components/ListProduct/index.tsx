@@ -7,18 +7,9 @@ import { CardProduct } from '../TabProducts/CardProduct';
 export const ListProduct = ({ data }: { data: ProductType[] }) => {
   return (
     <Box>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, md: 8, lg: 12, xl: 16, xxl: 20 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 8, lg: 12, xl: 16, xxl: 20 }}>
         {data.slice(0, 15).map((prod) => (
-          <Grid
-            key={prod._id}
-            item
-            xs={4}
-            md={4}
-            lg={4}
-            xl={4}
-            xxl={4}
-            sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
-          >
+          <Grid key={prod._id} item xs={4} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
             <Box
               component={motion.div}
               layout

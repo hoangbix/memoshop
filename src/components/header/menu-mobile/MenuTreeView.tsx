@@ -72,6 +72,7 @@ const MenuTreeView = ({ handleDrawerToggle }: { handleDrawerToggle: () => void }
         }}
       >
         <TreeItemCustom nodeId={'1'} label={'Cửa hàng'}>
+          <TreeItemChildrenCustom to={'/san-pham'} nodeId="16" label="Tất cả sản phẩm" />
           <TreeItemChildrenCustom to={'/'} nodeId="2" label="Rau xanh" />
           <TreeItemChildrenCustom to={'/'} nodeId="3" label="Sản phẩm đóng gói" />
           <TreeItemChildrenCustom to={'/'} nodeId="4" label="Thịt & gia cầm" />

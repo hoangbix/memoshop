@@ -25,8 +25,11 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
     if (data.isNew) {
       status = { text: 'New', bg: '#5a7aff' };
     }
-    if (data.discount) {
-      status = { text: `-${data.discount}%`, bg: '#3BB77E' };
+    if (data.promotionalPrice) {
+      status = {
+        text: `-${Math.abs(((data.promotionalPrice - data.price) / data.price) * 100).toFixed(0)}%`,
+        bg: '#3BB77E',
+      };
     }
     return status;
   };
@@ -57,7 +60,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
       <Box sx={{ position: 'relative' }}>
         <Card
           sx={{
-            width: '100%',
+            width: { xs: 'auto', lg: 290 },
             maxWidth: '100%',
             height: { xs: 'auto', lg: 520 },
             boxShadow: 'none',
@@ -66,12 +69,22 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             padding: { xs: '10px 5px', sm: '10px', md: '15px' },
           }}
         >
-          <CardMedia
-            component="img"
-            image={data.image}
-            alt="green iguana"
-            sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
-          />
+          {data.images.length ? (
+            <CardMedia
+              component="img"
+              image={data.images[0].url}
+              alt={data.title}
+              sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
+            />
+          ) : (
+            <CardMedia
+              component="img"
+              image={''}
+              alt={data.title}
+              sx={{ borderRadius: '10px', backgroundPosition: 'cover', height: { xs: 160, lg: 217 } }}
+            />
+          )}
+
           <CardContent sx={{ padding: '10px 0', mb: '10px' }}>
             <Typography
               gutterBottom
@@ -87,9 +100,9 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
                 WebkitLineClamp: 2,
               }}
             >
-              {data.name}
+              {data.title}
             </Typography>
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 alignItems: 'end',
@@ -97,27 +110,33 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
             >
               <Rating size="small" name="half-rating-read" defaultValue={data.rating} precision={0.5} readOnly />
               <Box sx={{ ml: 2, fontSize: '12px', fontWeight: 600 }}>({data.rating})</Box>
-            </Box>
+            </Box> */}
           </CardContent>
           <Box sx={{ display: 'flex', alignItems: 'end', gap: '10px' }}>
             {data.price > 0 ? (
               <>
-                <Typography color={'#3BB77E'} fontSize="18px" fontWeight={'bold'}>
-                  {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
-                </Typography>
-                {data.discount ? (
-                  <Typography
-                    color={'#adadad'}
-                    fontSize="14px"
-                    fontWeight={'600'}
-                    sx={{ textDecoration: 'line-through' }}
-                  >
-                    {(data.price + (data.price * data.discount) / 100).toLocaleString('vi-VN', {
-                      maximumFractionDigits: 2,
-                    })}
-                    đ
+                {data.promotionalPrice ? (
+                  <>
+                    <Typography color={'#3BB77E'} fontSize="18px" fontWeight={'bold'}>
+                      {data.promotionalPrice.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
+                    </Typography>
+                    <Typography
+                      color={'#adadad'}
+                      fontSize="14px"
+                      fontWeight={'600'}
+                      sx={{ textDecoration: 'line-through' }}
+                    >
+                      {data.price.toLocaleString('vi-VN', {
+                        maximumFractionDigits: 2,
+                      })}
+                      đ
+                    </Typography>
+                  </>
+                ) : (
+                  <Typography color={'#3BB77E'} fontSize="18px" fontWeight={'bold'}>
+                    {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                   </Typography>
-                ) : null}
+                )}
               </>
             ) : (
               <Typography color={'#3BB77E'} fontSize="14px" fontWeight={'600'}>

@@ -8,6 +8,7 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import { BiCart } from 'react-icons/bi';
 import { ProductType } from 'src/types/product';
+import Link from 'next/link';
 
 export const CardProduct = ({ data }: { data: ProductType }) => {
   const renderStatus = () => {
@@ -48,29 +49,33 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
             padding: { xs: '5px', md: '15px' },
           }}
         >
-          <CardMedia
-            component="img"
-            image={data.images[0].url}
-            alt="green iguana"
-            sx={{ borderRadius: '10px', objectFit: 'contain', height: { xs: 150, md: 217 } }}
-          />
+          <Link href={`/san-pham/${data.slug}`} passHref>
+            <CardMedia
+              component="img"
+              image={data.images[0].url}
+              alt={data.title}
+              sx={{ borderRadius: '10px', objectFit: 'contain', height: { xs: 150, md: 217 } }}
+            />
+          </Link>
           <CardContent sx={{ padding: '10px 0', mb: '10px' }}>
-            <Typography
-              gutterBottom
-              variant="h5"
-              height={{ xs: 40, md: 43 }}
-              sx={{
-                color: '#253D4E',
-                fontWeight: 600,
-                display: '-webkit-box',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: 2,
-                fontSize: { xs: '14px', md: '16px' },
-              }}
-            >
-              {data.title}
-            </Typography>
+            <Link href={`/san-pham/${data.slug}`} passHref>
+              <Typography
+                gutterBottom
+                variant="h5"
+                height={{ xs: 40, md: 43 }}
+                sx={{
+                  color: '#253D4E',
+                  fontWeight: 600,
+                  display: '-webkit-box',
+                  overflow: 'hidden',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2,
+                  fontSize: { xs: '14px', md: '16px' },
+                }}
+              >
+                {data.title}
+              </Typography>
+            </Link>
             {/* <Box
               sx={{
                 width: 200,

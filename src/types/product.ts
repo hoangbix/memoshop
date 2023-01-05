@@ -31,6 +31,7 @@ export type ProductType = {
   totalratings: number;
   importWarehouseDate: Date;
   expirationDate: Date;
+  createdAt: Date;
   isHot: boolean;
   isNew: boolean;
   isSelling: boolean;
@@ -39,6 +40,7 @@ export type ProductType = {
 export type ListTabProductsType = {
   id: number;
   name: string;
+  category?: string;
 };
 
 export type UploadImgType = {

@@ -6,12 +6,15 @@ import { IoIosClose } from 'react-icons/io';
 import { FilterProduct } from 'src/components/FilterProduct';
 import { ListProduct } from 'src/components/ListProduct';
 import dynamic from 'next/dynamic';
+import { GetStaticProps } from 'next';
+import axiosClient from 'src/apiClient/axiosClient';
+import { ProductType } from 'src/types/product';
 
 const DealsCard = dynamic(() => import('src/components/DealsCard'), {
   ssr: false,
 });
 
-const ListProductPage = () => {
+const ListProductPage = ({ data }: { data: ProductType[] }) => {
   return (
     <Box sx={{ my: '30px' }}>
       {/******** Header *********** */}
@@ -107,7 +110,7 @@ const ListProductPage = () => {
       {/******** Title *********** */}
       <Box sx={{ mb: '30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography color={'#7E7E7E'} fontSize={'14px'}>
-          Tìm thấy <span style={{ color: '#3BB77E', fontWeight: 600 }}>50</span> sản phẩm
+          Tìm thấy <span style={{ color: '#3BB77E', fontWeight: 600 }}>{data.length}</span> sản phẩm
         </Typography>
       </Box>
 
@@ -120,10 +123,10 @@ const ListProductPage = () => {
         flexWrap={{ xs: 'wrap-reverse', xl: 'wrap' }}
       >
         <Grid item xs={4} lg={4} xl={3}>
-          <FilterProduct />
+          <FilterProduct data={data} />
         </Grid>
         <Grid item xs={4} lg={4} xl={10}>
-          <ListProduct />
+          <ListProduct data={data} />
         </Grid>
       </Grid>
       <Box sx={{ mt: '40px' }}>
@@ -131,6 +134,16 @@ const ListProductPage = () => {
       </Box>
     </Box>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axiosClient.get(`/product`);
+  const data: ProductType[] = await res.data;
+
+  return {
+    props: { data },
+    revalidate: 300,
+  };
 };
 
 ListProductPage.getLayout = (page: ReactNode) => <DefaultLayout>{page}</DefaultLayout>;

@@ -1,8 +1,7 @@
 import { Box } from '@mui/material';
 import Slider from 'react-slick';
+import { ProductType } from 'src/types/product';
 import { BestSellsCard } from '../BestSells/BestSellsCard';
-
-import { cardProductData } from '../TabProducts/data';
 
 const settings = {
   dots: false,
@@ -42,13 +41,11 @@ const settings = {
   ],
 };
 
-const SimilarProduct = () => {
-  const filteredItems = cardProductData.filter((item) => item.isHot);
-
+const SimilarProduct = ({ data }: { data: ProductType[] }) => {
   return (
     <Slider {...settings}>
-      {filteredItems.slice(0, 10).map((item) => (
-        <Box key={item.id} sx={{ display: 'flex', justifyContent: 'center' }}>
+      {data.slice(0, 10).map((item) => (
+        <Box key={item._id} sx={{ display: 'flex', justifyContent: 'center' }}>
           <BestSellsCard data={item} />
         </Box>
       ))}

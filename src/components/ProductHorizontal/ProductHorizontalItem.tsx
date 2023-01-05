@@ -18,7 +18,7 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
         },
       }}
     >
-      <Box component={'img'} src={product.image} sx={{ width: 104, height: '100%', borderRadius: '10px' }} />
+      <Box component={'img'} src={product.images[0].url} sx={{ width: 104, height: '100%', borderRadius: '10px' }} />
       <Box sx={{ padding: '15px' }}>
         <Typography
           gutterBottom
@@ -34,7 +34,7 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
             WebkitLineClamp: 2,
           }}
         >
-          {product.name}
+          {product.title}
         </Typography>
         <Box
           sx={{
@@ -44,23 +44,24 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
             alignItems: 'end',
           }}
         >
-          <Rating size="small" name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
-          <Box sx={{ ml: 2, fontSize: '12px', fontWeight: 600 }}>({product.rating})</Box>
+          {/* <Rating size="small" name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly /> */}
+          <Rating size="small" name="half-rating-read" defaultValue={0} precision={0.5} readOnly />
+          <Box sx={{ ml: 2, fontSize: '12px', fontWeight: 600 }}>({product.totalratings})</Box>
         </Box>
         <Box>
           {product.price > 0 ? (
-            <Box sx={{ display: 'flex', alignItems: 'end', gap: '10px' }}>
-              <Typography color={'#3BB77E'} fontSize={isDetail ? '16px' : '18px'} fontWeight={'bold'}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
                 {product.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
               </Typography>
-              {product.discount ? (
+              {product.promotionalPrice ? (
                 <Typography
                   color={'#adadad'}
-                  fontSize={isDetail ? '12px' : '14px'}
+                  fontSize={{ xs: '12px', lg: '14px' }}
                   fontWeight={'600'}
                   sx={{ textDecoration: 'line-through' }}
                 >
-                  {(product.price + (product.price * product.discount) / 100).toLocaleString('vi-VN', {
+                  {product.promotionalPrice.toLocaleString('vi-VN', {
                     maximumFractionDigits: 2,
                   })}
                   đ
@@ -68,7 +69,7 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
               ) : null}
             </Box>
           ) : (
-            <Typography color={'#3BB77E'} fontSize={isDetail ? '12px' : '14px'} fontWeight={'600'}>
+            <Typography color={'#3BB77E'} fontSize="14px" fontWeight={'600'}>
               Liên hệ
             </Typography>
           )}

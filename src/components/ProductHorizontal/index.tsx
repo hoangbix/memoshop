@@ -1,9 +1,9 @@
 import { Box, Grid, Typography, BoxProps, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { cardProductData } from '../TabProducts/data';
 import { ProductHorizontalItem } from './ProductHorizontalItem';
 
 import { sortBy } from 'lodash';
+import { ProductType } from 'src/types/product';
 
 const ProductItemWrapper = styled(Box)<BoxProps>(() => ({
   mb: '30px',
@@ -19,11 +19,12 @@ const ProductItemWrapper = styled(Box)<BoxProps>(() => ({
   },
 }));
 
-const ProductHorizontal = () => {
-  const selling = cardProductData.filter((item) => item.isHot);
-  const trending = cardProductData.filter((item) => item.isNew);
-  const recentlyAdded = cardProductData.filter((item) => item.isHot);
-  const topRated = sortBy(cardProductData, 'rating').reverse();
+const ProductHorizontal = ({ data }: { data: ProductType[] }) => {
+  const selling = data.filter((item) => item.isHot);
+  // const trending = data.filter((item) => item.isNew);
+  const trending = data.filter((item) => item);
+  const recentlyAdded = data.filter((item) => item.isHot);
+  const topRated = sortBy(data, 'rating').reverse();
 
   const listProductHorizontal = [
     { id: 1, title: 'Bán chạy nhất', products: selling || [] },
@@ -45,7 +46,7 @@ const ProductHorizontal = () => {
             xl={4}
             sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}
           >
-            <Box sx={{}} key={item.id}>
+            <Box key={item.id}>
               <ProductItemWrapper>
                 <Typography
                   color={'#253D4E'}
@@ -60,7 +61,7 @@ const ProductHorizontal = () => {
               </ProductItemWrapper>
               <Box sx={{ mt: '30px' }}>
                 {item.products.slice(0, 3).map((item) => (
-                  <Stack key={item.id} sx={{ margin: '10px 0' }}>
+                  <Stack key={item._id} sx={{ margin: '10px 0' }}>
                     <ProductHorizontalItem product={item} />
                   </Stack>
                 ))}

@@ -5,6 +5,8 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { ProductType } from 'src/types/product';
+import { format } from 'date-fns';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,15 +32,15 @@ function createData(name: string, calories: number | string) {
   return { name, calories };
 }
 
-const rows = [
-  createData('Kích thước', '35″L x 24″W x 37-45″H'),
-  createData('Trọng lượng', '50/60/100/150 (gram)'),
-  createData('Nhà sản xuất', 'An Viên'),
-  createData('Hạn sử dụng', '01/06/2023'),
-  createData('Bảo quản', 'Không gian thoáng'),
-];
+export const AdditionalInfo = ({ data }: { data: ProductType }) => {
+  const rows = [
+    createData('Danh mục', `${data.category}`),
+    createData('Nhà sản xuất', `${data.brand}`),
+    createData('Ngày nhập hàng', `${format(new Date(data.importWarehouseDate), 'dd-MM-yyyy') || ''}`),
+    createData('Hạn sử dụng', `${format(new Date(data.expirationDate), 'dd-MM-yyyy') || ''}`),
+    createData('Bảo quản', 'Không gian thoáng'),
+  ];
 
-export const AdditionalInfo = () => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 300 }} aria-label="customized table">

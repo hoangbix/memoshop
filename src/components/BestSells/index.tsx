@@ -6,7 +6,6 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { ListTabProductsType, ProductType } from 'src/types/product';
-import { cardProductData } from '../TabProducts/data';
 import TabFilter from '../TabProducts/TabFilter';
 import { BiLogInCircle } from 'react-icons/bi';
 
@@ -15,9 +14,9 @@ import { BestSellsCard } from './BestSellsCard';
 import Slider from 'react-slick';
 
 const listTabProducts: ListTabProductsType[] = [
-  { category: 'selling', to: '/', id: 1, name: 'Bán chạy' },
-  { category: 'sale', to: '/', id: 2, name: 'Đang giảm giá' },
-  { category: 'new', to: '/', id: 3, name: 'Sản phẩm mới' },
+  { category: 'selling', id: 1, name: 'Bán chạy' },
+  { category: 'sale', id: 2, name: 'Đang giảm giá' },
+  { category: 'new', id: 3, name: 'Sản phẩm mới' },
 ];
 
 const settings = {
@@ -63,14 +62,15 @@ const settings = {
   ],
 };
 
-const BestSells = () => {
-  const [filteredItems, setFilteredItems] = useState<ProductType[]>(cardProductData.filter((item) => item.isHot) || []);
+const BestSells = ({ data }: { data: ProductType[] }) => {
+  const [filteredItems, setFilteredItems] = useState<ProductType[]>(data.filter((item) => item.isHot) || []);
 
   const handleFilter = (i: string) => {
-    if (i === 'selling') return setFilteredItems(cardProductData.filter((item) => item.isHot));
-    if (i === 'sale') return setFilteredItems(cardProductData.filter((item) => item.discount));
+    if (i === 'Bán chạy') return setFilteredItems(data.filter((item) => item.isHot));
+    if (i === 'Đang giảm giá') return setFilteredItems(data.filter((item) => item.promotionalPrice));
 
-    setFilteredItems(cardProductData.filter((item) => item.isNew));
+    // setFilteredItems(data.filter((item) => item.isNew));
+    setFilteredItems(data.filter((item) => item));
   };
 
   return (
@@ -129,7 +129,7 @@ const BestSells = () => {
           <Slider {...settings}>
             {filteredItems.slice(0, 10).map((item) => (
               <Box
-                key={item.id}
+                key={item._id}
                 sx={{ display: 'flex', justifyContent: 'center' }}
                 component={motion.div}
                 layout

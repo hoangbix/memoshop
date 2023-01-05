@@ -9,7 +9,7 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   console.info('You clicked a breadcrumb.');
 }
 
-export const BreadcrumbsCustom = () => {
+export const BreadcrumbsCustom = ({ title }: { title?: string }) => {
   return (
     <Box sx={{ height: 65, display: 'flex', alignItems: 'center' }}>
       <div role="presentation" onClick={handleClick}>
@@ -33,11 +33,13 @@ export const BreadcrumbsCustom = () => {
             fontWeight={600}
             href="/"
           >
-            Chi tiết
+            Sản phẩm
           </MuiLink>
-          <Typography sx={{ display: 'flex', alignItems: 'center' }} color="text.primary">
-            Bắp cải xanh
-          </Typography>
+          {title ? (
+            <Typography sx={{ display: 'flex', alignItems: 'center' }} color="text.primary">
+              {title}
+            </Typography>
+          ) : null}
         </Breadcrumbs>
       </div>
     </Box>

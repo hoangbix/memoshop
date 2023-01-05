@@ -25,9 +25,9 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
       <PopularCategories />
       <BannerTopCard />
       <TabProducts data={data} />
-      <BestSells />
+      <BestSells data={data} />
       <DealsCard />
-      <ProductHorizontal />
+      <ProductHorizontal data={data} />
       <BannerFooter />
       <ServiceFooter />
     </Fragment>

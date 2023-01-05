@@ -2,10 +2,10 @@ import { Box, Typography, BoxProps, FormGroup, FormControlLabel, Checkbox, Butto
 import { styled } from '@mui/material/styles';
 
 import { CiFilter } from 'react-icons/ci';
+import { ProductType } from 'src/types/product';
 import { FillByPrice } from '../FillByPrice';
 import { OrganicBanner } from '../OragicBanner';
 import { ProductHorizontalItem } from '../ProductHorizontal/ProductHorizontalItem';
-import { cardProductData } from '../TabProducts/data';
 
 import { FilterProductCategory } from './FilterProductCategory';
 
@@ -23,8 +23,8 @@ const ProductItemWrapper = styled(Box)<BoxProps>(() => ({
   },
 }));
 
-export const FilterProduct = () => {
-  const trending = cardProductData.filter((item) => item.isNew);
+export const FilterProduct = ({ data }: { data: ProductType[] }) => {
+  const trending = data.filter((item) => item.isNew);
 
   return (
     <Box>
@@ -91,35 +91,35 @@ export const FilterProduct = () => {
           </Button>
         </Box>
       </Box>
-
-      <Box
-        sx={{
-          backgroundColor: '#fff',
-          padding: '10px',
-          boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-          borderRadius: '10px',
-          mb: '20px',
-        }}
-      >
-        <ProductItemWrapper>
-          <Typography
-            color={'#253D4E'}
-            fontSize={'20px'}
-            fontWeight={700}
-            sx={{
-              height: '40px',
-            }}
-          >
-            Sản phẩm mới
-          </Typography>
-        </ProductItemWrapper>
-        {trending.slice(0, 4).map((item) => (
-          <Stack key={item.id} sx={{ margin: '10px 0' }}>
-            <ProductHorizontalItem product={item} isDetail />
-          </Stack>
-        ))}
-      </Box>
-
+      {trending.length ? (
+        <Box
+          sx={{
+            backgroundColor: '#fff',
+            padding: '10px',
+            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+            borderRadius: '10px',
+            mb: '20px',
+          }}
+        >
+          <ProductItemWrapper>
+            <Typography
+              color={'#253D4E'}
+              fontSize={'20px'}
+              fontWeight={700}
+              sx={{
+                height: '40px',
+              }}
+            >
+              Sản phẩm mới
+            </Typography>
+          </ProductItemWrapper>
+          {trending.slice(0, 4).map((item) => (
+            <Stack key={item._id} sx={{ margin: '10px 0' }}>
+              <ProductHorizontalItem product={item} isDetail />
+            </Stack>
+          ))}
+        </Box>
+      ) : null}
       <Box sx={{ mb: '20px', width: '100%', display: { xs: 'none', xl: 'block' } }}>
         <OrganicBanner />
       </Box>

@@ -1,6 +1,6 @@
 import { ProductType } from 'src/types/product';
 
-export const cardProductData: ProductType[] = [
+export const cardProductData: any[] = [
   {
     id: 1,
     name: 'Nấm đùi gà Green Kingdom 250gr',

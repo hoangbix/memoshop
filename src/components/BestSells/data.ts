@@ -1,6 +1,6 @@
 import { ProductType } from 'src/types/product';
 
-export const bestSellsData: ProductType[] = [
+export const bestSellsData: any[] = [
   {
     id: 6,
     name: 'Nạc nọng giòn An Mộc 1kg',

@@ -15,7 +15,7 @@ const listBanners = [
     title: 'Mừng năm mới 2023, rau củ giảm tới 50%. Nhanh tay lên, số lượng có hạn',
     price: 22000,
     discount: 50,
-    promotionDay: 'Tue Dec 20 2022 15:15:37 GMT+0700 (Indochina Time)',
+    promotionDay: 'Tue March 20 2023 15:15:37 GMT+0700 (Indochina Time)',
   },
   {
     img: 'images/assets/banner-2.png',
@@ -23,7 +23,7 @@ const listBanners = [
     title: 'Làm cho bữa sáng của bạn lành mạnh & dễ dàng',
     price: 150000,
     discount: 30,
-    promotionDay: 'Tue Dec 28 2022 00:00:00 GMT+0700 (Indochina Time)',
+    promotionDay: 'Sun May 28 2023 00:00:00 GMT+0700 (Indochina Time)',
   },
   {
     img: 'images/assets/banner-8.png',
@@ -32,7 +32,7 @@ const listBanners = [
       'Giảm đến 42% cho tất cả trái cây duy nhất ngày Giáng sinh 24/12/2022. Mức giảm giá áp dụng cho tất cả các sản phẩm có trong danh mục',
     price: 150000,
     discount: 42,
-    promotionDay: 'Tue Dec 29 2022 14:40:11 GMT+0700 (Indochina Time)',
+    promotionDay: 'Tue June 29 2023 14:40:11 GMT+0700 (Indochina Time)',
   },
   {
     img: 'images/assets/banner-3.png',

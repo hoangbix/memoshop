@@ -166,7 +166,9 @@ const ProductDetail = (data: ProductType) => {
               </Box>
               <Box sx={{ padding: '15px 0', display: { xs: 'block', md: 'flex' }, alignItems: 'center', gap: '10px' }}>
                 <Typography color={'#3BB77E'} fontSize={{ xs: '22px', lg: '38px' }} fontWeight={'bold'}>
-                  {(135000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
+                  {data.promotionalPrice
+                    ? `${data.promotionalPrice.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`
+                    : `${data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`}
                 </Typography>
                 {data.promotionalPrice ? (
                   <Box sx={{ display: { xs: 'flex', md: 'block' }, alignItems: 'center', gap: '10px' }}>
@@ -179,7 +181,7 @@ const ProductDetail = (data: ProductType) => {
                       fontWeight={'600'}
                       sx={{ textDecoration: 'line-through' }}
                     >
-                      {(150000).toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
+                      {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
                     </Typography>
                   </Box>
                 ) : null}

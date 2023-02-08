@@ -54,7 +54,9 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
             {product.price > 0 ? (
               <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
-                  {product.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
+                  {product.promotionalPrice
+                    ? `${product.promotionalPrice.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`
+                    : `${product.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`}
                 </Typography>
                 {product.promotionalPrice ? (
                   <Typography
@@ -63,7 +65,7 @@ export const ProductHorizontalItem = ({ product, isDetail }: { product: ProductT
                     fontWeight={'600'}
                     sx={{ textDecoration: 'line-through' }}
                   >
-                    {product.promotionalPrice.toLocaleString('vi-VN', {
+                    {product.price.toLocaleString('vi-VN', {
                       maximumFractionDigits: 2,
                     })}
                     đ

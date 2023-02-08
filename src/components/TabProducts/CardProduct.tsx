@@ -117,13 +117,14 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 gap: '5px',
-                mb: '10px',
               }}
             >
               {data.price > 0 ? (
                 <>
                   <Typography color={'#3BB77E'} fontSize={{ xs: '14px', lg: '18px' }} fontWeight={'bold'}>
-                    {data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ
+                    {data.promotionalPrice
+                      ? `${data.promotionalPrice.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`
+                      : `${data.price.toLocaleString('vi-VN', { maximumFractionDigits: 2 })}đ`}
                   </Typography>
                   {data.promotionalPrice ? (
                     <Typography
@@ -132,7 +133,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                       fontWeight={'600'}
                       sx={{ textDecoration: 'line-through' }}
                     >
-                      {data.promotionalPrice.toLocaleString('vi-VN', {
+                      {data.price.toLocaleString('vi-VN', {
                         maximumFractionDigits: 2,
                       })}
                       đ
@@ -140,7 +141,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
                   ) : null}
                 </>
               ) : (
-                <Typography color={'#3BB77E'} fontSize="14px" fontWeight={'600'}>
+                <Typography color={'#ca1313'} fontWeight={'600'}>
                   Liên hệ
                 </Typography>
               )}
@@ -149,6 +150,7 @@ export const CardProduct = ({ data }: { data: ProductType }) => {
               <Button
                 variant="outlined"
                 startIcon={<BiCart />}
+                disabled={data.price <= 0}
                 sx={{
                   width: { xs: '100%', md: '84px' },
                   height: '36px',

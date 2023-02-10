@@ -11,9 +11,13 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import MobileStepper from '@mui/material/MobileStepper';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'src/store';
+import { addToCart as addToCartStore } from 'src/store/cart';
 
 export const BestSellsCard = ({ data }: { data: ProductType }) => {
   const isMobile = useMediaQuery('(max-width:650px)');
+  const dispatch = useDispatch<AppDispatch>();
 
   const renderStatus = () => {
     let status = {
@@ -54,6 +58,10 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
       };
     }
     return status;
+  };
+
+  const addToCart = (product: ProductType) => {
+    dispatch(addToCartStore(product));
   };
 
   return (
@@ -188,6 +196,7 @@ export const BestSellsCard = ({ data }: { data: ProductType }) => {
               variant="contained"
               startIcon={!isMobile ? <BiCart /> : <></>}
               disabled={data.quantity - data.sold === 0}
+              onClick={() => addToCart(data)}
               sx={{
                 width: '100%',
                 height: '40px',
